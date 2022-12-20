@@ -1,0 +1,1 @@
+# um_inventory_frontend
