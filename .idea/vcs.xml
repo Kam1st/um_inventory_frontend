@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/um_inventory_frontend" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/vue_frontend/um_inventory_frontend" vcs="Git" />
-  </component>
-</project>
