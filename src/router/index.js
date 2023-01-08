@@ -2,6 +2,8 @@ import {createRouter, createWebHistory} from "vue-router"
 import inventoryItem from "@/components/inventoryItem";
 import loginPage from "@/components/loginPage";
 import stockItem from "@/components/stockItem";
+import reportsPage from "@/components/reportsPage";
+
 
 const routes = [
     {
@@ -18,7 +20,12 @@ const routes = [
         path: "/stock",
         name: "Stock",
         component: stockItem
-    }
+    },
+    {
+        path: "/reports",
+        name: "Report",
+        component: reportsPage
+    },
 ];
 
 const router = createRouter({
