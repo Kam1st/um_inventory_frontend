@@ -30,11 +30,6 @@ export default {
     this.getItems()
   },
   methods: {
-    getItems() {
-      axios.get("http://localhost:8080/orders").then(response => {
-        this.produce = response.data
-      })
-    },
     getByClientId() {
       axios.get("http://localhost:8080/orders/client/{clientId}").then(response => {
         this.produce = response.data
