@@ -3,6 +3,7 @@ import inventoryItem from "@/components/inventoryItem";
 import loginPage from "@/components/loginPage";
 import stockItem from "@/components/stockItem";
 import ordersPage from "@/components/ordersPage";
+import stockItemDetails from "@/components/stockItemDetails";
 
 
 const routes = [
@@ -26,6 +27,11 @@ const routes = [
         name: "Orders",
         component: ordersPage
     },
+    {
+        path: "/stock/stockItemDetails",
+        name: "StockItemDetails",
+        component: stockItemDetails
+    }
 ];
 
 const router = createRouter({
