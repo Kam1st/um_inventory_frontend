@@ -2,7 +2,7 @@
   <div>
     <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
     <hr>
-    <h2 class="text-center">Other</h2>
+    <h2 class="text-center">Orders</h2>
 
     <div class="center">
       <h3>Get Orders By Client Id</h3>
@@ -45,6 +45,47 @@
     </table>
 
 
+
+    <div class="center">
+      <h3>Get Orders By Stock Item Id</h3>
+      <label for="stock-id">Stock Item Id:</label>
+      <input id="stock-id" v-model="stockItemId" placeholder="stock item id" />
+      <br />
+      <br />
+      <button @click="getByStockItemId">Get Data</button>
+    </div>
+
+    <table v-for="(items, index) in produce" v-bind:key="index">
+      <tr>
+        <th>
+          Order Id: {{index}}
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Stock Item Id
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Quantity
+        </th>
+      </tr>
+
+      <tr v-for="(item, index) in items.stockOrderDTOS" v-bind:key="index">
+        <td>
+          {{item.stockItemId}}
+        </td>
+        <td>
+          {{item.description}}
+        </td>
+        <td>
+          {{item.quantity}}
+        </td>
+      </tr>
+    </table>
+
   </div>
 </template>
 
@@ -56,7 +97,8 @@ export default {
   data() {
     return {
       produce: [],
-      clientId: ""
+      clientId: "",
+      stockItemId: ""
     };
   },
   methods: {
@@ -69,7 +111,18 @@ export default {
       } catch (error) {
         console.error(error);
       }
+    },
+    async getByStockItemId() {
+      try {
+        const response = await axios.get(
+            `http://localhost:8080/orders/stockItem/${this.stockItemId}`
+        );
+        this.produce = response.data;
+      } catch (error) {
+        console.error(error);
+      }
     }
+
   }
 };
 </script>
