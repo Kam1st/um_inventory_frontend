@@ -11,7 +11,7 @@
     <div class="form-group">
       <fieldset>
         <label>ID</label>
-        <input type="text" v-model="currentStockItem.stockItemId" disabled>
+        <input type="text" name="id" v-model="currentStockItem.stockItemId" disabled>
       </fieldset>
       <fieldset>
         <label>Description</label>
