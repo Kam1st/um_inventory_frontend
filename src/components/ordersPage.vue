@@ -1,0 +1,78 @@
+<template>
+  <div>
+    <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
+    <hr>
+    <h2 class="text-center">Other</h2>
+
+    <div class="center">
+      <h3>Get Orders By Client Id</h3>
+      <label for="client-id">Client Id:</label>
+      <input id="client-id" v-model="clientId" placeholder="client id" />
+      <br />
+      <br />
+      <button @click="getByClientId">Get Data</button>
+    </div>
+
+    <table v-for="(items, index) in produce" v-bind:key="index">
+      <tr>
+        <th>
+          Order Id: {{index}}
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Stock Item Id
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Quantity
+        </th>
+      </tr>
+
+      <tr v-for="(item, index) in items.stockOrderDTOS" v-bind:key="index">
+        <td>
+          {{item.stockItemId}}
+        </td>
+        <td>
+          {{item.description}}
+        </td>
+        <td>
+          {{item.quantity}}
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+</template>
+
+<script>
+import axios from "axios";
+
+export default {
+  name: "ordersPage",
+  data() {
+    return {
+      produce: [],
+      clientId: ""
+    };
+  },
+  methods: {
+    async getByClientId() {
+      try {
+        const response = await axios.get(
+            `http://localhost:8080/orders/client/${this.clientId}`
+        );
+        this.produce = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+};
+</script>
+
+<style scoped>
+</style>
