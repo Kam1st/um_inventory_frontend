@@ -12,6 +12,39 @@
       <br />
       <button @click="getByClientId">Get Data</button>
     </div>
+
+    <table v-for="(items, index) in produce" v-bind:key="index">
+      <tr>
+        <th>
+          Order Id: {{index}}
+        </th>
+      </tr>
+      <tr>
+        <th>
+          Stock Item Id
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Quantity
+        </th>
+      </tr>
+
+      <tr v-for="(item, index) in items.stockOrderDTOS" v-bind:key="index">
+        <td>
+          {{item.stockItemId}}
+        </td>
+        <td>
+          {{item.description}}
+        </td>
+        <td>
+          {{item.quantity}}
+        </td>
+      </tr>
+    </table>
+
+
   </div>
 </template>
 
@@ -19,7 +52,7 @@
 import axios from "axios";
 
 export default {
-  name: "reportsPage",
+  name: "ordersPage",
   data() {
     return {
       produce: [],
