@@ -4,7 +4,7 @@ import loginPage from "@/components/loginPage";
 import stockItem from "@/components/stockItem";
 import ordersPage from "@/components/ordersPage";
 import stockItemDetails from "@/components/stockItemDetails";
-
+import stockItemForm from "@/components/stockItemForm";
 
 const routes = [
     {
@@ -23,14 +23,19 @@ const routes = [
         component: stockItem
     },
     {
-        path: "/orders",
-        name: "Orders",
-        component: ordersPage
-    },
-    {
         path: "/stock/stockItemDetails",
         name: "StockItemDetails",
         component: stockItemDetails
+    },
+    {
+        path: "/stock/new",
+        name: "NewStockItem",
+        component: stockItemForm
+    },
+    {
+        path: "/orders",
+        name: "Orders",
+        component: ordersPage
     }
 ];
 
