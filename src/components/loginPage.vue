@@ -1,16 +1,11 @@
-
 <template>
-
-  <p v-html="$t('message.welcome')"/>
-  <p v-html="$t('message.goodbye')"/>
-
   <div class="hello">
     <br>
     <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
     <br>
     <hr>
     <br>
-    <h2 class="text-center">Login Page</h2>
+    <h2 v-html="$t('login.title')"/>
     <div class="center"><button name="loginBtn">Login</button></div>
     <br>
     <br>

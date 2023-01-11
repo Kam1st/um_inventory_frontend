@@ -16,6 +16,9 @@ const messages = {
             orders_stock_id: 'Get Orders By Stock Item Id ',
             label_orders_stock_id: 'Stock Item Id ',
             placeholder_orders_stock_id: 'Stock Item Id ',
+        },
+        login: {
+            title: 'Login'
         }
     },
     fr: {
@@ -29,6 +32,9 @@ const messages = {
             orders_stock_id: 'Commandes selon le code de produit ',
             label_orders_stock_id: 'Code Produit ',
             placeholder_orders_stock_id: 'Code Produit ',
+        },
+        login: {
+            title: 'Se connecter'
         }
     }
 }
