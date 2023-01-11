@@ -10,7 +10,7 @@
       <input id="client-id" v-model="clientId" placeholder="client id" />
       <br />
       <br />
-      <button @click="getByClientId">Get Data</button>
+      <button @click="getByClientId">Get Data By Client Id</button>
     </div>
 
     <table v-for="(items, index) in produce" v-bind:key="index">
@@ -50,7 +50,7 @@
       <input id="stock-id" v-model="stockItemId" placeholder="stock item id" />
       <br />
       <br />
-      <button @click="getByStockItemId">Get Data</button>
+      <button @click="getByStockItemId">Get Data By Stock Item Id</button>
     </div>
 
     <table v-for="(items, index) in produce2" v-bind:key="index">
