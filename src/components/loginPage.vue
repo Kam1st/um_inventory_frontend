@@ -5,14 +5,16 @@
     <br>
     <hr>
     <br>
-    <h2 class="text-center">Login Page</h2>
-    <div class="center">
-      <button name="loginBtn">Login</button>
-      <button class="center" v-on:click="redirectToClientForm">Create Client Account</button>
-    </div>
+
+    <h2 v-html="$t('login.title')"/>
+    <div class="center"><button name="loginBtn">Login</button>
+     <button class="center" v-on:click="redirectToClientForm">Create Client Account</button>
+     </div>
+
     <br>
     <br>
   </div>
+
 </template>
 
 <script>
@@ -46,7 +48,9 @@ li {
 a {
   color: #42b983;
 }
+
 button {
   margin: 5px;
 }
 </style>
+
