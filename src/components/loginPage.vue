@@ -5,8 +5,12 @@
     <br>
     <hr>
     <br>
+
     <h2 v-html="$t('login.title')"/>
-    <div class="center"><button name="loginBtn">Login</button></div>
+    <div class="center"><button name="loginBtn">Login</button>
+     <button class="center" v-on:click="redirectToClientForm">Create Client Account</button>
+     </div>
+
     <br>
     <br>
   </div>
@@ -16,8 +20,14 @@
 <script>
 export default {
   name: 'LoginPage',
+  /*
   props: {
     msg: String
+  },*/
+  methods: {
+    redirectToClientForm(){
+      this.$router.push(`/clients`);
+    }
   }
 }
 </script>
@@ -38,4 +48,9 @@ li {
 a {
   color: #42b983;
 }
+
+button {
+  margin: 5px;
+}
 </style>
+
