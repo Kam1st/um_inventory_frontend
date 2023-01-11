@@ -1,4 +1,9 @@
+
 <template>
+
+  <p v-html="$t('message.welcome')"/>
+  <p v-html="$t('message.goodbye')"/>
+
   <div class="hello">
     <br>
     <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
