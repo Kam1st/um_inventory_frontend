@@ -37,7 +37,9 @@
         <label>Quantity in Stock</label>
         <input type="text" v-model="currentStockItem.quantityInStock">
       </fieldset>
+
       <button name="update" v-on:click="updateItem">Update Item</button>
+
       <button name="back" v-on:click="backToList">Back</button>
     </div>
   </div>
