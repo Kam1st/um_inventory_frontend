@@ -44,8 +44,6 @@
       </tr>
     </table>
 
-
-
     <div class="center">
       <h3>Get Orders By Stock Item Id</h3>
       <label for="stock-id">Stock Item Id:</label>
@@ -55,7 +53,7 @@
       <button @click="getByStockItemId">Get Data</button>
     </div>
 
-    <table v-for="(items, index) in produce" v-bind:key="index">
+    <table v-for="(items, index) in produce2" v-bind:key="index">
       <tr>
         <th>
           Order Id: {{index}}
@@ -96,6 +94,7 @@ export default {
   data() {
     return {
       produce: [],
+      produce2: [],
       clientId: "",
       stockItemId: ""
     };
@@ -116,7 +115,7 @@ export default {
         const response = await axios.get(
             `http://localhost:8080/orders/stockItem/${this.stockItemId}`
         );
-        this.produce = response.data;
+        this.produce2 = response.data;
       } catch (error) {
         console.error(error);
       }
