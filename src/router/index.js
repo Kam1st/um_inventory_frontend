@@ -7,6 +7,7 @@ import stockItemDetails from "@/components/stockItemDetails";
 import stockItemForm from "@/components/stockItemForm";
 import clientForm from "@/components/clientForm";
 
+
 const routes = [
     {
         path: "/",
@@ -37,6 +38,12 @@ const routes = [
         path: "/orders",
         name: "Orders",
         component: ordersPage
+    },
+    {
+
+        path: "/stock/stockItemDetails",
+        name: "StockItemDetails",
+        component: stockItemDetails
     },
     {
         path: "/clients",

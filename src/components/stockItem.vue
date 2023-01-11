@@ -8,8 +8,19 @@
     <div class="center">
       <button name="stockList">Produce List</button>
       <button @click="redirectNewStockItem()">Add new stock item</button>
+
+        <h3>Get Stock Items by Price</h3>
+        <label for="stockPrice">Price:</label>
+        <input id="stockPrice" v-model="sellingPrice" placeholder="stockPrice" />
+        <br />
+        <br />
+        <button @click="getByStockItemId">Get Data</button>
+
     </div>
     <br>
+    <div v-if="prices">
+
+    </div>
     <br>
     <div>
       <table>
@@ -51,11 +62,13 @@
 
 <script>
 import axios from "axios";
+
 export default {
   name: "stockItem",
   data() {
     return {
-      produce: []
+      produce: [],
+      prices: []
     };
   },
   async beforeMount() {
@@ -96,6 +109,7 @@ export default {
 </script>
 
 <style scoped>
+
 button{
   margin: 5px;
 }
