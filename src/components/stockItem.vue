@@ -4,15 +4,49 @@
   <br>
   <hr>
   <br>
-  <h2 class="text-center">Stock Items - Click To View Items</h2>
-  <div class="center"><button name="stockList"> Produce List</button></div>
-  <br>
-  <br>
-  <div v-for="item in produce" v-bind:key="item.stockItemId">
-    <h2>{{item.stockItemId}} - {{item.sdescription}} - {{item.supplierId}} - {{item.salesQuantity}} -
-      {{item.price}} <button name="deleteStock" v-on:click="deleteItemById" > Delete Item</button>
-    </h2>
-  </div>
+    <h2 class="text-center">Stock Items - Click To View Items</h2>
+    <div class="center">
+      <button name="stockList">Produce List</button>
+      <button @click="redirectNewStockItem()">Add new stock item</button>
+    </div>
+    <br>
+    <br>
+    <div>
+      <table>
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Description</th>
+          <th>Supplier</th>
+          <th>Quantity Sold</th>
+          <th>Cost</th>
+          <th>Selling Price</th>
+          <th>Quantity in Stock</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in produce" v-bind:key="item.stockItemId">
+          <td>{{ item.stockItemId }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.supplierName }}</td>
+          <td>{{ item.quantitySold }}</td>
+          <td>{{ item.costPrice }}</td>
+          <td>{{ item.sellingPrice }}</td>
+          <td>{{ item.quantityInStock }}</td>
+          <td>
+            <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
+              Details
+            </button>
+          </td>
+          <td>
+            <button name="delete" @click="deleteItemById(item.stockItemId)">
+              Delete
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
 </template>
 
 <script>
@@ -22,27 +56,47 @@ export default {
   data() {
     return {
       produce: []
-    }
+    };
   },
-  beforeMount() {
-    this.getItems()
+  async beforeMount() {
+    await this.getItems();
   },
   methods: {
-    getItems() {
-      axios.get("http://localhost:8080/stocks").then(response => {
-        this.produce=response.data
-      })
+    async getItems() {
+      try {
+        const response = await axios.get("http://localhost:8080/stocks");
+        this.produce = response.data;
+      } catch (error) {
+        console.error(error);
+      }
     },
-
-    deleteItemById() {
-      axios.delete("http://localhost:8080/stocks/{stockItemId}").then(response => {
-        this.produce=response.data
-      })
+    async detailsClicked(stockItemId) {
+      try {
+        localStorage.setItem("var1", stockItemId);
+        this.$router.push(`/stock/stockItemDetails`);
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async deleteItemById(stockItemId) {
+      try {
+        const response = await axios.delete(
+            `http://localhost:8080/stocks/${stockItemId}`
+        );
+        this.produce = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    redirectNewStockItem(){
+      this.$router.push(`/stock/new`);
     }
   }
-}
+};
 </script>
 
 <style scoped>
-
+button{
+  margin: 5px;
+}
 </style>
