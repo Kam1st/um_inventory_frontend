@@ -1,15 +1,17 @@
 <template>
+  <LanguageComponent/>
   <router-view/>
+
 </template>
 
 <script>
-
+import languageComponent from "@/components/languageComponent";
 
 export default {
   name: 'App',
   components: {
-
-  }
+    languageComponent
+  },
 }
 </script>
 

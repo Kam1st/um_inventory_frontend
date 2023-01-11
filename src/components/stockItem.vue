@@ -1,10 +1,13 @@
 <template>
-  <div>
-    <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-    <hr>
+  <br>
+  <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
+  <br>
+  <hr>
+  <br>
     <h2 class="text-center">Stock Items - Click To View Items</h2>
     <div class="center">
       <button name="stockList">Produce List</button>
+      <button @click="redirectNewStockItem()">Add new stock item</button>
     </div>
     <br>
     <br>
@@ -44,7 +47,6 @@
         </tbody>
       </table>
     </div>
-  </div>
 </template>
 
 <script>
@@ -86,10 +88,17 @@ export default {
       } catch (error) {
         console.error(error);
       }
+    },
+    redirectNewStockItem(){
+      this.$router.push(`/stock/new`);
     }
   }
 };
 </script>
 
 <style scoped>
+
+button{
+  margin: 5px;
+}
 </style>

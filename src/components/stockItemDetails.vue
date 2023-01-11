@@ -37,6 +37,10 @@
         <label>Quantity in Stock</label>
         <input type="text" v-model="currentStockItem.quantityInStock">
       </fieldset>
+<<<<<<< HEAD
+=======
+      <button name="update" v-on:click="updateItem">Update Item</button>
+>>>>>>> 373be5d886240081ef9baeb31654177d4aedbeb2
       <button name="back" v-on:click="backToList">Back</button>
     </div>
   </div>
@@ -83,6 +87,20 @@ export default {
       } catch (error) {
         console.error(error);
       }
+    },
+    updateItem(){
+      axios.put(`http://localhost:8080/stocks/${this.stockItemId}`, {
+        description: this.currentStockItem.description,
+        supplierName: this.currentStockItem.supplierName,
+        quantitySold: this.currentStockItem.quantitySold,
+        costPrice: this.currentStockItem.costPrice,
+        sellingPrice: this.currentStockItem.sellingPrice,
+        quantityInStock: this.currentStockItem.quantityInStock
+      })
+          .then(response => {
+            this.produce=response.data
+            this.$router.push(`/stock`);
+          })
     }
   },
 
@@ -95,5 +113,8 @@ fieldset {
 }
 input{
   margin-left: 10px;
+}
+button{
+  margin: 10px;
 }
 </style>
