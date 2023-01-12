@@ -29,7 +29,15 @@ const messages = {
             title: 'Client Details',
             search: 'Search for Client',
             input: 'Client ID',
-            button: 'Get Client'
+            button: 'Get Client',
+            client_id_label: 'Client ID',
+            client_name_label: 'Client Name',
+            employee_name_label: 'Employee Name',
+            client_address_label: 'Client Address',
+            client_phone_label: 'Client Phone',
+            update_details_button: 'Update',
+            back_button: 'back',
+            delete_button: 'Delete',
         }
     },
     fr: {
@@ -51,7 +59,15 @@ const messages = {
             title: 'Détails du client',
             search: 'Rechercher un client',
             input: 'Identifiant Client',
-            button: 'Obtenir le client'
+            button: 'Obtenir le client',
+            client_id_label: 'Identifiant Client',
+            client_name_label: 'Nom du Client',
+            employee_name_label: 'Nom de l\'Employee',
+            client_address_label: 'Addresse',
+            client_phone_label: '# de Telephone',
+            update_details_button: 'Mettre a jour',
+            back_button: 'Retour',
+            delete_button: 'Supprimer le Client',
         }
     }
 }

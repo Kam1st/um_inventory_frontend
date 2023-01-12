@@ -16,36 +16,33 @@
   <br />
   <button @click="getByClientId" v-html="$t('clients.button')"/>
   <br>
-  <div>
-    {{ message }}
-  </div>
   <br/>
   <div v-if="client" class="edit-form">
     <div class="form-group">
       <fieldset>
-        <label>ID</label>
+        <label v-html="$t('clients.client_id_label')"></label>
         <input type="text" v-model="client.clientId" disabled>
       </fieldset>
       <fieldset>
-        <label>Employee Name</label>
+        <label v-html="$t('clients.client_name_label')"></label>
         <input type="text" v-model="client.clientName">
       </fieldset>
       <fieldset>
-        <label>Employee Contact</label>
-        <input type="text" v-model="client.supplierName">
+        <label v-html="$t('clients.employee_name_label')"></label>
+        <input type="text" v-model="client.clientEmployeeName">
       </fieldset>
       <fieldset>
-        <label>Address</label>
+        <label v-html="$t('clients.client_address_label')"></label>
         <input type="text" v-model="client.clientAddress">
       </fieldset>
       <fieldset>
-        <label>Phone Number</label>
+        <label v-html="$t('clients.client_phone_label')"></label>
         <input type="text" v-model="client.clientPhone">
       </fieldset>
 
-      <button name="update" v-on:click="updateClient">Update Details</button>
+      <button v-html="$t('clients.update_details_button')" name="update" v-on:click="updateClient"></button>
 
-      <button name="back" v-on:click="backToList">Back</button>
+      <button v-html="$t('clients.back_button')" name="back" v-on:click="backToList"></button>
 
 <!--      <button name="back" v-on:click="deleteById">Delete</button>-->
     </div>
@@ -71,13 +68,28 @@ export default {
       );
       console.log(response)
       this.client = response.data;
-      if (!this.client){
-        this.message = 'No client by this Id is found.';
-      }
+
     } catch (error) {
       console.error(error)
+      alert(error+": No client with this Id was found.")
     }
   },
+    async updateClient() {
+      try {
+        axios.put(`http://localhost:8080/clients/${this.clientId}`, {
+          clientName: this.client.clientName,
+          clientEmployeeName: this.client.clientEmployeeName,
+          clientAddress: this.client.clientAddress,
+          clientPhone: this.client.clientPhone
+        })
+            .then(response => {
+              this.produce = response.data
+              this.$router.push(`/`);
+            })
+      } catch (error) {
+        console.error(error)
+      }
+    },
   // async deleteById() {
   //   try {
   //     const response = await axios.delete(
