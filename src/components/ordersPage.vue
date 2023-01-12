@@ -108,6 +108,7 @@ export default {
         this.produce = response.data;
       } catch (error) {
         console.error(error);
+        alert(error+": No orders with this client Id was found.");
       }
     },
     async getByStockItemId() {
@@ -118,6 +119,7 @@ export default {
         this.produce2 = response.data;
       } catch (error) {
         console.error(error);
+        alert(error+": No orders with this stock item Id was found.");
       }
     }
 

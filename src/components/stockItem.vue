@@ -110,6 +110,7 @@ export default {
         this.produce = response.data;
       } catch (error) {
         console.error(error);
+        alert(error+": No stock item with this Id was found.")
       }
     },
     async detailsClicked(stockItemId) {
