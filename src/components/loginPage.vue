@@ -26,7 +26,7 @@ export default {
   },*/
   methods: {
     redirectToClientForm(){
-      this.$router.push(`/clients`);
+      this.$router.push(`/clients/new`);
     }
   }
 }
