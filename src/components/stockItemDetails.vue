@@ -41,6 +41,8 @@
       <button name="update" v-on:click="updateItem">Update Item</button>
 
       <button name="back" v-on:click="backToList">Back</button>
+
+      <button name="back" v-on:click="deleteById">Delete</button>
     </div>
   </div>
 </template>
@@ -87,7 +89,7 @@ export default {
         console.error(error);
       }
     },
-    updateItem(){
+    updateItem() {
       axios.put(`http://localhost:8080/stocks/${this.stockItemId}`, {
         description: this.currentStockItem.description,
         supplierName: this.currentStockItem.supplierName,
@@ -97,10 +99,22 @@ export default {
         quantityInStock: this.currentStockItem.quantityInStock
       })
           .then(response => {
-            this.produce=response.data
+            this.produce = response.data
             this.$router.push(`/stock`);
           })
-    }
+    },
+    async deleteById() {
+      try {
+        const response = await axios.delete(
+            `http://localhost:8080/stocks/${this.stockItemId}`
+        );
+        this.produce = response.data;
+        this.$router.push(`/stock`);
+      } catch (error) {
+        console.error(error);
+      }
+  },
+
   },
 
 }

@@ -8,19 +8,46 @@
     <div class="center">
       <button name="stockList">Produce List</button>
       <button @click="redirectNewStockItem()">Add new stock item</button>
-
+    </div>
+      <div>
         <h3>Get Stock Items by Price</h3>
         <label for="stockPrice">Price:</label>
-        <input id="stockPrice" v-model="sellingPrice" placeholder="stockPrice" />
+        <input id="stockPrice" v-model="sellingPrice"/>
         <br />
         <br />
-        <button @click="getByStockItemId">Get Data</button>
+        <button @click="getByPrice">Get Data</button>
+      </div>
 
-    </div>
-    <br>
-    <div v-if="prices">
+      <table v-if="sellingPrice">
+        <thead>
+        <tr>
+          <th>ID:</th>
+          <th>Description</th>
+          <th>Supplier</th>
+          <th>Quantity Sold</th>
+          <th>Cost</th>
+          <th>Selling Price</th>
+          <th>Quantity in Stock</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="item in prices" v-bind:key="item.stockItemId">
+          <td>{{ item.stockItemId }}</td>
+          <td>{{ item.description }}</td>
+          <td>{{ item.supplierName }}</td>
+          <td>{{ item.quantitySold }}</td>
+          <td>{{ item.costPrice }}</td>
+          <td>{{ item.sellingPrice }}</td>
+          <td>{{ item.quantityInStock }}</td>
+          <td>
+            <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
+              Details
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
 
-    </div>
     <br>
     <div>
       <table>
@@ -50,9 +77,9 @@
             </button>
           </td>
           <td>
-            <button name="delete" @click="deleteItemById(item.stockItemId)">
-              Delete
-            </button>
+<!--            <button name="delete" @click="deleteItemById(item.stockItemId)">-->
+<!--              Delete-->
+<!--            </button>-->
           </td>
         </tr>
         </tbody>
@@ -68,7 +95,9 @@ export default {
   data() {
     return {
       produce: [],
-      prices: []
+      prices: [],
+      sellingPrice: '',
+      stockItemId: ''
     };
   },
   async beforeMount() {
@@ -91,14 +120,24 @@ export default {
         console.error(error);
       }
     },
-    async deleteItemById(stockItemId) {
+    // async deleteItemById(stockItemId) {
+    //   try {
+    //     const response = await axios.delete(
+    //         `http://localhost:8080/stocks/${stockItemId}`
+    //     );
+    //     this.produce = response.data;
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // },
+    async getByPrice() {
       try {
-        const response = await axios.delete(
-            `http://localhost:8080/stocks/${stockItemId}`
+        const response = await axios.get(
+            `http://localhost:8080/stocks/price/${this.sellingPrice}`
         );
-        this.produce = response.data;
+        this.prices = response.data;
       } catch (error) {
-        console.error(error);
+        console.error(error)
       }
     },
     redirectNewStockItem(){
