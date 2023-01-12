@@ -14,7 +14,7 @@
   <input id="clientId" v-model="clientId"/>
   <br />
   <br />
-  <button @click="getByClientId" v-html="$t('clients.button')"/>
+  <button @click="getByClientId" id="getClient" v-html="$t('clients.button')"/>
   <br>
   <br/>
   <div v-if="client" class="edit-form">
