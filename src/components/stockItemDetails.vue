@@ -23,7 +23,7 @@
       </fieldset>
       <fieldset>
         <label>Quantity Sold</label>
-        <input type="text" v-model="currentStockItem.quantitySold">
+        <input type="text"  id="quantSold" v-model="currentStockItem.quantitySold">
       </fieldset>
       <fieldset>
         <label>Cost Price</label>
