@@ -4,14 +4,17 @@
   <br>
   <hr>
   <br>
-  <h2 class="text-center">Client Details</h2>
+  <div class="text-center">
+    <h2 v-html="$t('clients.title')"/>
+  </div>
+
   <br>
-  <h3>Search for Client</h3>
-  <label for="clientId">Client ID:</label>
+  <h3 v-html="$t('clients.search')"/>
+  <label for="clientId" v-html="$t('clients.input')"/>
   <input id="clientId" v-model="clientId"/>
   <br />
   <br />
-  <button @click="getByClientId">Get Client</button>
+  <button @click="getByClientId" v-html="$t('clients.button')"/>
   <br>
   <div>
     {{ message }}

@@ -24,6 +24,12 @@ const messages = {
         },
         login: {
             title: 'Login'
+        },
+        clients: {
+            title: 'Client Details',
+            search: 'Search for Client',
+            input: 'Client ID',
+            button: 'Get Client'
         }
     },
     fr: {
@@ -40,6 +46,12 @@ const messages = {
         },
         login: {
             title: 'Se connecter'
+        },
+        clients: {
+            title: 'Détails du client',
+            search: 'Rechercher un client',
+            input: 'Identifiant Client',
+            button: 'Obtenir le client'
         }
     }
 }
