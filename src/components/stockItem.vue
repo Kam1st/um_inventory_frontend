@@ -15,7 +15,7 @@
         <input id="stockPrice" v-model="sellingPrice"/>
         <br />
         <br />
-        <button @click="getByPrice">Get Data</button>
+        <button @click="getByPrice" id="getByPrice">Get Data</button>
       </div>
 
       <table v-if="sellingPrice">
