@@ -4,7 +4,7 @@
   <br>
   <hr>
   <br>
-  <h2 class="text-center">Stock Items - Click To View Items</h2>
+  <h2 class="text-center">Add a New Client</h2>
   <div class="center">
     <div class="form-group">
       <fieldset>
