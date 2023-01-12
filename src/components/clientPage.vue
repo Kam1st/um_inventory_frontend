@@ -44,7 +44,7 @@
 
       <button name="back" v-on:click="backToList">Back</button>
 
-      <button name="back" v-on:click="deleteById">Delete</button>
+<!--      <button name="back" v-on:click="deleteById">Delete</button>-->
     </div>
   </div>
 </template>
@@ -75,16 +75,16 @@ export default {
       console.error(error)
     }
   },
-  async deleteById() {
-    try {
-      const response = await axios.delete(
-          `http://localhost:8080/clients/${this.clientId}`
-      );
-      this.produce = response.data;
-    } catch (error) {
-      console.error(error);
-    }
-    },
+  // async deleteById() {
+  //   try {
+  //     const response = await axios.delete(
+  //         `http://localhost:8080/clients/${this.clientId}`
+  //     );
+  //     this.produce = response.data;
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  //   },
 }
 }
 </script>
