@@ -7,6 +7,10 @@
   <h2 class="text-center">Stock Items - Click To View Items</h2>
   <div class="center">
     <div class="form-group">
+      <fieldset>
+        <label>id</label>
+        <input type="text" v-model="stockItemId">
+      </fieldset>
     <fieldset>
       <label>Description</label>
       <input type="text" v-model="description">
@@ -48,6 +52,7 @@ export default {
   methods: {
     createStockItem() {
       axios.post("http://localhost:8080/stocks", {
+        stockItemId: this.stockItemId,
         description: this.description,
         supplierName: this.supplierName,
         quantitySold: 0,
