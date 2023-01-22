@@ -7,6 +7,7 @@ import stockItemDetails from "@/components/stockItemDetails";
 import stockItemForm from "@/components/stockItemForm";
 import clientForm from "@/components/clientForm";
 import clientPage from "@/components/clientPage";
+import employeePage from "@/components/employeePage";
 
 
 const routes = [
@@ -55,7 +56,12 @@ const routes = [
         path: "/clients",
         name: "ClientPage",
         component: clientPage
-    }
+    },
+    {
+        path: "/employees",
+        name: "Employees",
+        component: employeePage
+    },
 ];
 
 const router = createRouter({
