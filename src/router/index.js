@@ -8,7 +8,6 @@ import stockItemForm from "@/components/stockItemForm";
 import clientForm from "@/components/clientForm";
 import clientPage from "@/components/clientPage";
 
-
 const routes = [
     {
         path: "/",
