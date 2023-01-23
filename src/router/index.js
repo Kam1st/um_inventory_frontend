@@ -9,7 +9,6 @@ import clientForm from "@/components/clientForm";
 import clientPage from "@/components/clientPage";
 import employeePage from "@/components/employeePage";
 
-
 const routes = [
     {
         path: "/",
