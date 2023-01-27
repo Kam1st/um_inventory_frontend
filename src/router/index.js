@@ -8,6 +8,8 @@ import stockItemForm from "@/components/stockItemForm";
 import clientForm from "@/components/clientForm";
 import clientPage from "@/components/clientPage";
 import orderForm from "@/components/orderForm";
+import employeePage from "@/components/employeePage";
+import employeeForm from "@/components/employeeForm";
 
 
 const routes = [
@@ -61,7 +63,17 @@ const routes = [
         path: "/clients",
         name: "ClientPage",
         component: clientPage
-    }
+    },
+    {
+        path: "/employees",
+        name: "Employees",
+        component: employeePage
+    },
+    {
+        path: "/employees/new",
+        name: "EmployeesForm",
+        component: employeeForm
+    },
 ];
 
 const router = createRouter({
