@@ -7,8 +7,7 @@
   <h2 class="text-center">Employees</h2>
 
   <div class="center">
-    <button name="stockList">Produce List</button>
-    <button @click="redirectNewEmployee()">Add employee</button>
+    <button @click="redirectNewEmployee()">Add Employee</button>
   </div>
 
   <div>

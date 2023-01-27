@@ -9,22 +9,22 @@
     <div class="form-group">
       <fieldset>
         <label>Name</label>
-        <input type="text" v-model="employeeName">
+        <input id="name" type="text" v-model="employeeName">
       </fieldset>
       <fieldset>
         <label>Position</label>
-        <input type="text" v-model="position">
+        <input id="position" ype="text" v-model="position">
       </fieldset>
       <fieldset>
         <label>Date Hired</label>
-        <input type="text" v-model="dateOfHire">
+        <input id="date" type="text" v-model="dateOfHire">
       </fieldset>
       <fieldset>
         <label>Status</label>
-        <input type="text" v-model="status">
+        <input id="status" type="text" v-model="status">
       </fieldset>
       <fieldset>
-        <input type="submit" @click="addEmployee()" value="Add Employee">
+        <input id="addEmployee" type="submit" @click="addEmployee()" value="Add Employee">
         <button name="back" v-on:click="backToList">Back</button>
       </fieldset>
     </div>
