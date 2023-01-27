@@ -5,6 +5,11 @@
   <hr>
   <br>
   <h2 class="text-center">Employees</h2>
+
+  <div class="center">
+    <button @click="redirectNewEmployee()">Add Employee</button>
+  </div>
+
   <div>
     <table>
       <thead>
@@ -52,7 +57,10 @@ export default {
         console.error(error);
         alert(error)
       }
-    }
+    },
+    redirectNewEmployee(){
+      this.$router.push(`/employees/new`);
+}
   }
 };
 </script>
