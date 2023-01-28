@@ -6,9 +6,6 @@ import languageComponent from "@/components/languageComponent";
 import { createAuth0 } from "@auth0/auth0-vue";
 import authConfig from "../authConfig.json";
 const app = createApp(App);
-// you can create a collection for the different pages, fr and en. in this example it's orders and login.
-// and then, you call the variable of the collection you want.
-// if you want the title of the login page: <h2 v-html="$t('login.title')"/>
 
 const messages = {
     en: {
