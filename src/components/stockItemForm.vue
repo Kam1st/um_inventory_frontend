@@ -1,9 +1,4 @@
 <template>
-  <br>
-  <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-  <br>
-  <hr>
-  <br>
   <h2 class="text-center">Stock Items - Click To View Items</h2>
   <div class="center">
     <div class="form-group">
