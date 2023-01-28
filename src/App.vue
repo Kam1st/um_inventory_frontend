@@ -5,12 +5,14 @@
   <hr>
 
   <nav>
-    <a @click="redirectStockPage">Stock</a>&nbsp;
-    <a @click="redirectOrdersPage">Orders</a> &nbsp;
-    <a @click="redirectEmployeesPage">Employees</a> &nbsp;
-    <a @click="redirectProfilePage">View Profile</a> &nbsp;
+    <a @click="redirectStockPage" style="padding: 0 20px 0 20px; font-size: 22px;">Stock</a>&nbsp;
+    <a @click="redirectOrdersPage" style="padding: 0 20px 0 20px; font-size: 22px;">Orders</a> &nbsp;
+    <a @click="redirectEmployeesPage" style="padding: 0 20px 0 20px; font-size: 22px;">Employees</a> &nbsp;
+    <a @click="redirectProfilePage" style="padding: 0 20px 0 20px; font-size: 22px;">View Profile</a> &nbsp;
   </nav>
 
+  <br>
+  <br>
 
   <router-view/>
 
