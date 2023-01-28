@@ -89,8 +89,8 @@ nav a {
 
 img {
   float: left;
-  width: 100px;
-  height: 100px;
+  width: 143px;
+  height: 143px;
 }
 
 h1 {
