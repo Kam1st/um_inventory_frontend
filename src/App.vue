@@ -7,7 +7,6 @@
   <hr>
   </div>
 
-  
   <nav>
     <a @click="redirectStockPage">Stock</a>&nbsp;
     <a @click="redirectOrdersPage">Orders</a> &nbsp;
@@ -15,13 +14,27 @@
     <a @click="redirectProfilePage">View Profile</a> &nbsp;
   </nav>
 
+  <div style="background-color: #62B2FA; color: #051995">
   <hr>
-
   <br>
   <br>
 
   <router-view/>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>  <br>
+    <br>
 
+  </div>
 </template>
 
 <script>
@@ -59,7 +72,9 @@ export default {
   margin-top: 0px;
 }
 
-body{ margin: 0px;}
+body{
+  margin: 0px;
+}
 
 nav {
   color: #054ED6;
@@ -69,11 +84,16 @@ nav {
 nav a {
   padding: 0 20px 0 20px;
   font-size: 22px;
+  text-align: center;
 }
 
 img {
   float: left;
   width: 100px;
   height: 100px;
+}
+
+h1 {
+  font-size: 50px;
 }
 </style>
