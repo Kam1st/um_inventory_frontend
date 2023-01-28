@@ -11,19 +11,19 @@
     <div class="form-group">
       <fieldset>
         <label>Name</label>
-        <input id="name" type="text" v-model="currentEmployee.employeeName">
+        <input id="name" type="text" v-model="currentEmployee.employeeName"/>
       </fieldset>
       <fieldset>
         <label>Position</label>
-        <input id="position" type="text" v-model="currentEmployee.position">
+        <input id="position" type="text" v-model="currentEmployee.position"/>
       </fieldset>
       <fieldset>
         <label>Date Hired</label>
-        <input id="date" type="text" v-model="currentEmployee.dateOfHire">
+        <input id="date" type="text" v-model="currentEmployee.dateOfHire"/>
       </fieldset>
       <fieldset>
         <label>Status</label>
-        <input id="status" type="text" v-model="currentEmployee.status">
+        <input id="status" type="text" v-model="currentEmployee.status"/>
       </fieldset>
 
       <button name="update" v-on:click="updateEmployee">Update Employee</button>
@@ -45,8 +45,7 @@ export default {
       employeeName: '',
       position: '',
       dateOfHire: '',
-      status: '',
-      msg: []
+      status: ''
     };
   },
   computed: {
@@ -57,24 +56,6 @@ export default {
   beforeMount() {
     this.getItem()
   },
-  // watch: {
-  //   employeeName(value) {
-  //     this.employeeName = value;
-  //     this.validateEmployeeName(value);
-  //   },
-  //   position(value) {
-  //     this.position = value;
-  //     this.validatePosition(value);
-  //   },
-  //   dateOfHire(value) {
-  //     this.dateOfHire = value;
-  //     this.validateDateOfHire(value);
-  //   },
-  //   status(value) {
-  //     this.status = value;
-  //     this.validateStatus(value);
-  //   },
-  // },
   methods: {
     async getItem() {
       try {
@@ -88,53 +69,26 @@ export default {
       }
     },
     updateEmployee() {
-      axios.put(`http://localhost:8080/employees/${this.employeeId}`, {
-        employeeName: this.currentEmployee.employeeName,
-        position: this.currentEmployee.position,
-        dateOfHire: this.currentEmployee.dateOfHire,
-        status: this.currentEmployee.status
-      })
-          .then(response => {
-            this.produce=response.data
-            this.$router.push(`/employees`);
-          })
+      if (!this.currentEmployee.employeeName | !this.currentEmployee.position
+          | !this.currentEmployee.dateOfHire | !this.currentEmployee.status){
+        alert('Please ensure all fields are filled.')
+      } else {
+        axios.put(`http://localhost:8080/employees/${this.employeeId}`, {
+          employeeName: this.currentEmployee.employeeName,
+          position: this.currentEmployee.position,
+          dateOfHire: this.currentEmployee.dateOfHire,
+          status: this.currentEmployee.status
+        })
+            .then(response => {
+              this.produce = response.data
+              this.$router.push(`/employees`);
+              alert('Employee details updated.')
+            })
+      }
     },
     backToList() {
       this.$router.push(`/employees`);
     },
-    // validateEmployeeName(value){
-    //   if (!value)
-    //   {
-    //     this.msg.employeeName = '';
-    //   } else {
-    //     this.msg.employeeName = 'Employee name is required.';
-    //
-    //   }
-    // },
-    // validatePosition(value){
-    //   if (!value)
-    //   {
-    //     this.msg.position = '';
-    //   } else {
-    //     this.msg.position = 'Employee position is required.';
-    //   }
-    // },
-    // validateDateOfHire(value){
-    //   if (!value)
-    //   {
-    //     this.msg.dateOfHire = '';
-    //   } else {
-    //     alert('Employee date of hire is required.');
-    //   }
-    // },
-    // validateStatus(value){
-    //   if (!value)
-    //   {
-    //     this.msg.status= '';
-    //   } else {
-    //     this.msg.status = 'Employee status is required.';
-    //   }
-    // }
   }
 }
 </script>
