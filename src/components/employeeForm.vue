@@ -42,16 +42,21 @@ export default {
   },
   methods: {
     addEmployee() {
-      axios.post("http://localhost:8080/employees", {
-        employeeName: this.employeeName,
-        position: this.position,
-        dateOfHire: this.dateOfHire,
-        status: this.status
-      })
-          .then(response => {
-            this.produce=response.data
-            this.$router.push(`/employees`);
-          })
+      if(!this.employeeName | !this.position
+          | !this.dateOfHire | !this.status){
+        alert('Please ensure all fields are filled.')
+      }else {
+        axios.post("http://localhost:8080/employees", {
+          employeeName: this.employeeName,
+          position: this.position,
+          dateOfHire: this.dateOfHire,
+          status: this.status
+        })
+            .then(response => {
+              this.produce = response.data
+              this.$router.push(`/employees`);
+            })
+      }
     },
     backToList() {
       this.$router.push(`/employees`);

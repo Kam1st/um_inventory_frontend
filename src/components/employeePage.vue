@@ -64,7 +64,7 @@ export default {
       }
     },
     redirectNewEmployee(){
-      this.$router.push(`/employees/employeeDetails`);
+      this.$router.push(`/employees/new`);
 },
     async detailsClicked(employeeId) {
       try {
