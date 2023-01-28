@@ -1,5 +1,4 @@
 import {createRouter, createWebHistory} from "vue-router"
-import inventoryItem from "@/components/inventoryItem";
 import loginPage from "@/components/loginPage";
 import stockItem from "@/components/stockItem";
 import ordersPage from "@/components/ordersPage";
@@ -16,11 +15,6 @@ const routes = [
         path: "/",
         name: "Login",
         component: loginPage
-    },
-    {
-        path: "/inventory",
-        name: "Inventory",
-        component: inventoryItem
     },
     {
         path: "/stock",

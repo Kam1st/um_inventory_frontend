@@ -1,10 +1,5 @@
 <template>
-  <div class="hello">
-    <br>
-    <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-    <br>
-    <hr>
-    <br>
+  <div>
 
     <h2 v-html="$t('login.title')"/>
     <div class="center">
