@@ -14,7 +14,7 @@
     <a @click="redirectProfilePage">View Profile</a> &nbsp;
   </nav>
 
-  <div style="background-color: #62B2FA; color: #051995">
+  <div style="background-color: #97C1FF; color: #051995">
   <hr>
   <br>
   <br>
@@ -96,4 +96,15 @@ img {
 h1 {
   font-size: 50px;
 }
+
+table, th, td {
+  border: 1px solid black;
+  border-spacing: 10px;
+  padding: 6px;
+}
+table {
+  margin-left:auto;
+  margin-right:auto;
+}
+
 </style>

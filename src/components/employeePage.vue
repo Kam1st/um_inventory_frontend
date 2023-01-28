@@ -66,15 +66,5 @@ button{
   margin: 5px;
 }
 
-table, th, td {
-  border: 1px solid black;
-  border-spacing: 10px;
-  padding: 6px;
-}
-table {
-  margin-left:auto;
-  margin-right:auto;
-}
-
 
 </style>
