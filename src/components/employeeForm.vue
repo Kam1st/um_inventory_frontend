@@ -13,7 +13,7 @@
       </fieldset>
       <fieldset>
         <label>Position</label>
-        <input id="position" ype="text" v-model="position">
+        <input id="position" type="text" v-model="position">
       </fieldset>
       <fieldset>
         <label>Date Hired</label>
