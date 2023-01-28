@@ -1,9 +1,4 @@
 <template>
-  <br>
-  <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-  <br>
-  <hr>
-  <br>
   <h2 class="text-center">Stock Item Details</h2>
   <br>
   <br>
