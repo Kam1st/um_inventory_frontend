@@ -41,7 +41,12 @@ export default {
   data() {
     return {
       currentEmployee: '',
-      message: ''
+      message: '',
+      employeeName: '',
+      position: '',
+      dateOfHire: '',
+      status: '',
+      msg: []
     };
   },
   computed: {
@@ -52,6 +57,24 @@ export default {
   beforeMount() {
     this.getItem()
   },
+  // watch: {
+  //   employeeName(value) {
+  //     this.employeeName = value;
+  //     this.validateEmployeeName(value);
+  //   },
+  //   position(value) {
+  //     this.position = value;
+  //     this.validatePosition(value);
+  //   },
+  //   dateOfHire(value) {
+  //     this.dateOfHire = value;
+  //     this.validateDateOfHire(value);
+  //   },
+  //   status(value) {
+  //     this.status = value;
+  //     this.validateStatus(value);
+  //   },
+  // },
   methods: {
     async getItem() {
       try {
@@ -78,7 +101,40 @@ export default {
     },
     backToList() {
       this.$router.push(`/employees`);
-    }
+    },
+    // validateEmployeeName(value){
+    //   if (!value)
+    //   {
+    //     this.msg.employeeName = '';
+    //   } else {
+    //     this.msg.employeeName = 'Employee name is required.';
+    //
+    //   }
+    // },
+    // validatePosition(value){
+    //   if (!value)
+    //   {
+    //     this.msg.position = '';
+    //   } else {
+    //     this.msg.position = 'Employee position is required.';
+    //   }
+    // },
+    // validateDateOfHire(value){
+    //   if (!value)
+    //   {
+    //     this.msg.dateOfHire = '';
+    //   } else {
+    //     alert('Employee date of hire is required.');
+    //   }
+    // },
+    // validateStatus(value){
+    //   if (!value)
+    //   {
+    //     this.msg.status= '';
+    //   } else {
+    //     this.msg.status = 'Employee status is required.';
+    //   }
+    // }
   }
 }
 </script>
