@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div>
 
     <h2 v-html="$t('login.title')"/>
     <div class="center">
