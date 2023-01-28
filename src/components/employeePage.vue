@@ -1,9 +1,4 @@
 <template>
-  <br>
-  <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-  <br>
-  <hr>
-  <br>
   <h2 class="text-center">Employees</h2>
 
   <div class="center">
@@ -69,16 +64,6 @@ export default {
 
 button{
   margin: 5px;
-}
-
-table, th, td {
-  border: 1px solid black;
-  border-spacing: 10px;
-  padding: 6px;
-}
-table {
-  margin-left:auto;
-  margin-right:auto;
 }
 
 

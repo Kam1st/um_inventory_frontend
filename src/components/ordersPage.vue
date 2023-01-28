@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-    <hr>
     <h2 class="text-center">Orders</h2>
 
     <div class="center">

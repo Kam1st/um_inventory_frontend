@@ -1,9 +1,4 @@
 <template>
-  <br>
-  <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-  <br>
-  <hr>
-  <br>
   <div class="text-center">
     <h2 v-html="$t('clients.title')"/>
   </div>
