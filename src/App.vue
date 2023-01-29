@@ -98,7 +98,7 @@ h1 {
 }
 
 table, th, td {
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   border-spacing: 10px;
   padding: 6px;
 }

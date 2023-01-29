@@ -39,7 +39,7 @@ export default {
     addEmployee() {
       if(!this.employeeName | !this.position
           | !this.dateOfHire | !this.status){
-        alert('Please ensure all fields are filled.')
+        alert('Please ensure all fields are filled out.')
       }else {
         axios.post("http://localhost:8080/employees", {
           employeeName: this.employeeName,
