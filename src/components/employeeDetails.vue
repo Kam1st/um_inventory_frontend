@@ -1,9 +1,4 @@
 <template>
-  <br>
-  <h1 class="text-center">UNIVERSAL MARKETING CO., LTD</h1>
-  <br>
-  <hr>
-  <br>
   <h2 class="text-center">Employee Details</h2>
   <br>
   <br>
@@ -30,6 +25,7 @@
 
       <button name="back" v-on:click="backToList">Back</button>
 
+      <button name="back" v-on:click="deleteById">Delete</button>
     </div>
   </div>
 </template>
@@ -41,11 +37,11 @@ export default {
   data() {
     return {
       currentEmployee: '',
-      message: '',
-      employeeName: '',
-      position: '',
-      dateOfHire: '',
-      status: ''
+      message: ''
+      // employeeName: '',
+      // position: '',
+      // dateOfHire: '',
+      // status: ''
     };
   },
   computed: {
@@ -71,7 +67,7 @@ export default {
     updateEmployee() {
       if (!this.currentEmployee.employeeName | !this.currentEmployee.position
           | !this.currentEmployee.dateOfHire | !this.currentEmployee.status){
-        alert('Please ensure all fields are filled.')
+        alert('Please ensure all fields are filled out.')
       } else {
         axios.put(`http://localhost:8080/employees/${this.employeeId}`, {
           employeeName: this.currentEmployee.employeeName,
@@ -80,6 +76,7 @@ export default {
           status: this.currentEmployee.status
         })
             .then(response => {
+              console.log(this.currentEmployee.employeeId)
               this.produce = response.data
               this.$router.push(`/employees`);
               alert('Employee details updated.')
@@ -88,6 +85,17 @@ export default {
     },
     backToList() {
       this.$router.push(`/employees`);
+    },
+    async deleteById() {
+      try {
+        const response = await axios.delete(
+            `http://localhost:8080/employees/${this.employeeId}`
+        );
+        this.produce = response.data;
+        this.$router.push(`/employees`);
+      } catch (error) {
+        console.error(error);
+      }
     },
   }
 }
