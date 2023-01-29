@@ -23,6 +23,11 @@
         <td>{{ item.position }}</td>
         <td>{{ item.dateOfHire }}</td>
         <td>{{ item.status }}</td>
+        <td>
+          <button name="employeeDetails" @click="detailsClicked(item.employeeId)">
+            Details
+          </button>
+        </td>
       </tr>
       </tbody>
     </table>
@@ -55,7 +60,15 @@ export default {
     },
     redirectNewEmployee(){
       this.$router.push(`/employees/new`);
-}
+},
+    async detailsClicked(employeeId) {
+      try {
+        localStorage.setItem("var2", employeeId);
+        this.$router.push(`/employees/employeeDetails`);
+      } catch (error) {
+        console.error(error);
+      }
+    },
   }
 };
 </script>

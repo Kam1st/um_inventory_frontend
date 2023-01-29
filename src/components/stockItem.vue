@@ -71,11 +71,6 @@
               Details
             </button>
           </td>
-          <td>
-<!--            <button name="delete" @click="deleteItemById(item.stockItemId)">-->
-<!--              Delete-->
-<!--            </button>-->
-          </td>
         </tr>
         </tbody>
       </table>
