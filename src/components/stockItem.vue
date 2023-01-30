@@ -3,6 +3,7 @@
     <div class="center">
       <button name="stockList">Produce List</button>
       <button @click="redirectNewStockItem()">Add new stock item</button>
+
     </div>
       <div>
         <h3>Get Stock Items by Price</h3>
@@ -16,7 +17,7 @@
       <table v-if="sellingPrice">
         <thead>
         <tr>
-          <th>ID:</th>
+          <th>ID</th>
           <th>Description</th>
           <th>Supplier</th>
           <th>Quantity Sold</th>
@@ -42,6 +43,43 @@
         </tr>
         </tbody>
       </table>
+  <div>
+    <h3>Get Stock Items by Supplier Name</h3>
+    <label for="supplierName">Supplier:</label>
+    <input id="supplierName" v-model="supplierName" @change="getBySupplierName"/>
+    <br />
+    <br />
+  </div>
+
+  <table v-if="produceBySupplier.length > 0">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Description</th>
+      <th>Supplier</th>
+      <th>Quantity Sold</th>
+      <th>Cost</th>
+      <th>Selling Price</th>
+      <th>Quantity in Stock</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr v-for="item in produceBySupplier" v-bind:key="item.stockItemId">
+      <td>{{ item.stockItemId }}</td>
+      <td>{{ item.description }}</td>
+      <td>{{ item.supplierName }}</td>
+      <td>{{ item.quantitySold }}</td>
+      <td>{{ item.costPrice }}</td>
+      <td>{{ item.sellingPrice }}</td>
+      <td>{{ item.quantityInStock }}</td>
+      <td>
+        <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
+          Details
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 
     <br>
     <div>
@@ -86,7 +124,9 @@ export default {
     return {
       produce: [],
       prices: [],
+      produceBySupplier: [],
       sellingPrice: '',
+      supplierName: '',
       stockItemId: ''
     };
   },
@@ -100,7 +140,7 @@ export default {
         this.produce = response.data;
       } catch (error) {
         console.error(error);
-        alert(error+": No stock item with this Id was found.")
+        alert(error+": No stock items were found")
       }
     },
     async detailsClicked(stockItemId) {
@@ -129,6 +169,20 @@ export default {
         this.prices = response.data;
       } catch (error) {
         console.error(error)
+      }
+    },
+    async getBySupplierName() {
+      try {
+        const response = await axios.get(
+            `http://localhost:8080/stocks/supplierName/${this.supplierName}`
+        );
+        this.produceBySupplier = response.data;
+        if (this.produceBySupplier.length == 0 && this.supplierName.length >0){
+          alert("No stock items with that supplier name were found.")
+        }
+      } catch (error) {
+        console.error(error)
+        alert("an error occurred: "+error)
       }
     },
     redirectNewStockItem(){
