@@ -82,6 +82,39 @@
       </tr>
     </table>
 
+    <div class="center">
+      <table v-for="(items, index) in produce3" v-bind:key="index">
+        <tr>
+          <th>
+            Order Id: {{index}}
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Stock Item Id
+          </th>
+          <th>
+            Description
+          </th>
+          <th>
+            Quantity
+          </th>
+        </tr>
+
+        <tr v-for="(item, index) in items.stockOrderDTOS" v-bind:key="index">
+          <td>
+            {{item.stockItemId}}
+          </td>
+          <td>
+            {{item.description}}
+          </td>
+          <td>
+            {{item.quantity}}
+          </td>
+        </tr>
+      </table>
+    </div>
+
   </div>
 </template>
 
@@ -93,11 +126,23 @@ export default {
     return {
       produce: [],
       produce2: [],
+      produce3: [],
       clientId: "",
       stockItemId: ""
     };
   },
+  async beforeMount() {
+    await this.getItems();
+  },
   methods: {
+    async getItems() {
+      try {
+        const response = await axios.get("http://localhost:8080/orders");
+        this.produce3 = response.data;
+      } catch (error) {
+        console.error(error);
+      }
+    },
     async getByClientId() {
       try {
         const response = await axios.get(
