@@ -149,6 +149,9 @@ export default {
       try {
         const response = await axios.get(`http://localhost:8080/orders/${this.clientId}/quantity`);
         this.produceByClient = response.data;
+        if(this.produceByClient < 1){
+          alert('No stock items were found for this client.')
+        }
       } catch (error) {
         console.error(error);
         alert(error + ": No stock items were found")
