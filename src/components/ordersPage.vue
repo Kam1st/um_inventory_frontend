@@ -8,7 +8,7 @@
       <input id="stock-id" v-model="stockItemId" placeholder="stock item id" />
       <br />
       <br />
-      <button @click="getByStockItemId">Get Data By Stock Item Id</button>
+      <button @click="getByStockItemId">Get Data</button>
     </div>
 
     <table v-for="(items, index) in produce2" v-bind:key="index">
@@ -104,17 +104,20 @@ export default {
       }
     },
     async getByStockItemId() {
-      try {
-        const response = await axios.get(
-            `http://localhost:8080/orders/stockItem/${this.stockItemId}`
-        );
-        this.produce2 = response.data;
-      } catch (error) {
-        console.error(error);
-        alert(error+": No orders with this stock item Id was found.");
+      if (!this.stockItemId) {
+        alert('Please enter a stock item ID.')
+      } else {
+        try {
+          const response = await axios.get(
+              `http://localhost:8080/orders/stockItem/${this.stockItemId}`
+          );
+          this.produce2 = response.data;
+        } catch (error) {
+          console.error(error);
+          alert(error + ": No orders with this stock item Id was found.");
+        }
       }
     }
-
   }
 };
 </script>
