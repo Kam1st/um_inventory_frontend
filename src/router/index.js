@@ -10,6 +10,7 @@ import orderForm from "@/components/orderForm";
 import employeePage from "@/components/employeePage";
 import employeeForm from "@/components/employeeForm";
 import employeeDetails from "@/components/employeeDetails";
+import stockItemLists from "@/components/stockItemLists";
 
 
 const routes = [
@@ -32,6 +33,12 @@ const routes = [
         path: "/stock/new",
         name: "NewStockItem",
         component: stockItemForm
+    },
+    {
+
+        path: "/stock/lists",
+        name: "StockItemLists",
+        component: stockItemLists
     },
     {
         path: "/orders",
