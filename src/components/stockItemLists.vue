@@ -36,8 +36,8 @@
   </div>
   <br/>
   <div v-if="clientId">
-  <label for="clientId">Client ID</label>
-  {{ this.clientId}}
+  <label for="clientIdDisplay" id="clientIdDisplay">Client ID</label>
+  {{ this.clientId }}
   </div>
 
   <div>
