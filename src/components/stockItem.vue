@@ -1,7 +1,7 @@
 <template>
     <h2 class="text-center">Stock Items - Click To View Items</h2>
     <div class="center">
-      <button name="stockList">Produce List</button>
+      <button @click="redirectStockLists()">Produce List</button>
       <button @click="redirectNewStockItem()">Add new stock item</button>
 
     </div>
@@ -187,8 +187,11 @@ export default {
     },
     redirectNewStockItem(){
       this.$router.push(`/stock/new`);
-    }
+    },
+  redirectStockLists(){
+    this.$router.push(`/stock/lists`);
   }
+  },
 };
 </script>
 
