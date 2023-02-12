@@ -25,35 +25,40 @@
   </table>
   </div>
 
-  <table v-if="sellingPrice">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Description</th>
-      <th>Supplier</th>
-      <th>Quantity Sold</th>
-      <th>Cost</th>
-      <th>Selling Price</th>
-      <th>Quantity in Stock</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="item in prices" v-bind:key="item.stockItemId">
-      <td>{{ item.stockItemId }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.supplierName }}</td>
-      <td>{{ item.quantitySold }}</td>
-      <td>{{ item.costPrice }}</td>
-      <td>{{ item.sellingPrice }}</td>
-      <td>{{ item.quantityInStock }}</td>
-      <td>
-        <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
-          Details
-        </button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+  <br/>
+  <div>
+    <h3>Get Stock Items Sold By Client</h3>
+    <label for="clientId">Client ID:</label>
+    <input id="clientId" v-model="clientId" @change="getByClient"/>
+    <br />
+    <br />
+    <button @click="getByClient" id="getByClient">Get Data</button>
+  </div>
+  <br/>
+  <div v-if="clientId">
+  <label for="clientId">Client ID</label>
+  {{ this.clientId}}
+  </div>
+
+  <div>
+    <table v-if="produceByClient.length > 0">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Quantity</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr v-for="(item, index) in produceByClient" v-bind:key="index">
+        <td>{{ item.stockItemId }}</td>
+        <td>{{ item.description }}</td>
+        <td id="quantity">{{ item.quantity }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
   <div>
     <h3>Get Stock Items by Supplier Name</h3>
     <label for="supplierName">Supplier:</label>
@@ -109,7 +114,9 @@ export default {
       sellingPrice: '',
       supplierName: '',
       stockItemId: '',
-      produceByQuant: []
+      produceByQuant: [],
+      clientId: '',
+      produceByClient: []
 
     };
   },
@@ -127,13 +134,26 @@ export default {
       }
     },
     async getByQuantity() {
+        try {
+          const response = await axios.get("http://localhost:8080/orders/quantity");
+          this.produceByQuant = response.data;
+        } catch (error) {
+          console.error(error);
+          alert(error+": No stock items were found")
+        }
+    },
+    async getByClient() {
+      if (!this.clientId) {
+          alert('Please enter an ID.')
+      } else {
       try {
-        const response = await axios.get("http://localhost:8080/orders/quantity");
-        this.produceByQuant = response.data;
+        const response = await axios.get(`http://localhost:8080/orders/${this.clientId}/quantity`);
+        this.produceByClient = response.data;
       } catch (error) {
         console.error(error);
-        alert(error+": No stock items were found")
+        alert(error + ": No stock items were found")
       }
+    }
     },
     async detailsClicked(stockItemId) {
       try {
@@ -154,17 +174,21 @@ export default {
       }
     },
     async getBySupplierName() {
-      try {
-        const response = await axios.get(
-            `http://localhost:8080/stocks/supplierName/${this.supplierName}`
-        );
-        this.produceBySupplier = response.data;
-        if (this.produceBySupplier.length == 0 && this.supplierName.length >0){
-          alert("No stock items with that supplier name were found.")
+      if(!this.supplierName){
+        alert('Please enter a supplier name.')
+      }else {
+        try {
+          const response = await axios.get(
+              `http://localhost:8080/stocks/supplierName/${this.supplierName}`
+          );
+          this.produceBySupplier = response.data;
+          if (this.produceBySupplier.length == 0 && this.supplierName.length > 0) {
+            alert("No stock items with that supplier name were found.")
+          }
+        } catch (error) {
+          console.error(error)
+          alert("an error occurred: " + error)
         }
-      } catch (error) {
-        console.error(error)
-        alert("an error occurred: "+error)
       }
     },
     redirectNewStockItem(){
