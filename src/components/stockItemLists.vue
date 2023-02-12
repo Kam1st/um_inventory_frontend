@@ -3,7 +3,7 @@
 
   <br/>
   <div>
-  <button @click="getByQuantity">Get Stock Item By Quantity</button>
+  <button @click="getByQuantity">Get Stock Items By Quantity Sold</button>
   </div>
   <br/>
   <div>
@@ -19,54 +19,11 @@
     <tr v-for="(item, index) in produceByQuant" v-bind:key="index">
       <td>{{ item.stockItemId }}</td>
       <td>{{ item.description }}</td>
-      <td>{{ item.quantity }}</td>
-<!--&lt;!&ndash;      <td>&ndash;&gt;-->
-<!--&lt;!&ndash;        <button name="stockDetails" @click="detailsClicked(item.stockItemId)">&ndash;&gt;-->
-<!--&lt;!&ndash;          Details&ndash;&gt;-->
-<!--&lt;!&ndash;        </button>&ndash;&gt;-->
-<!--&lt;!&ndash;      </td>&ndash;&gt;-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--  </table>-->
-<!--  <div>-->
-<!--  <table>-->
-<!--  <thead>-->
-<!--    <tr>-->
-<!--      <th>-->
-<!--        Stock Item Id-->
-<!--      </th>-->
-<!--      <th>-->
-<!--        Description-->
-<!--      </th>-->
-<!--      <th>-->
-<!--        Quantity-->
-<!--      </th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr v-for="(item, index) in items.stockOrderDTOS" v-bind:key="index">-->
-<!--      <td>-->
-<!--        {{item.stockItemId}}-->
-<!--      </td>-->
-<!--      <td>-->
-<!--        {{item.description}}-->
-<!--      </td>-->
-<!--      <td>-->
-<!--        {{item.quantity}}-->
-<!--      </td>-->
+      <td id="quantity">{{ item.quantity }}</td>
     </tr>
     </tbody>
   </table>
   </div>
-<!--  <br/>-->
-<!--  <div>-->
-<!--    <h3>Get Stock Items by Price</h3>-->
-<!--    <label for="stockPrice">Price:</label>-->
-<!--    <input id="stockPrice" v-model="sellingPrice"/>-->
-<!--    <br />-->
-<!--    <br />-->
-<!--    <button @click="getByPrice" id="getByPrice">Get Data</button>-->
-<!--  </div>-->
 
   <table v-if="sellingPrice">
     <thead>
