@@ -1,6 +1,6 @@
 <template>
 
-  <button style="float: right; margin-right: 490px" v-on:click="redirectToClientForm">Create Client</button>
+  <button style="float: right; margin-right: 490px" v-on:click="redirectToClientForm" v-html="$t('clients.new')"/>
 <br>
   <br>
   <h3 v-html="$t('clients.search')"/>
@@ -8,7 +8,7 @@
   <input id="clientId" v-model="clientId"/>
   <br />
   <br />
-  <button @click="getByClientId" id="getClient" v-html="$t('clients.button')"/>
+  <button @click="getByClientId" id="getClient" v-html="$t('clients.buttonSearch')"/>
   <br>
   <br/>
   <div v-if="client" class="edit-form">
@@ -39,6 +39,49 @@
       <button name="back" v-on:click="deleteById">Delete</button>
     </div>
   </div>
+
+  <div class="center">
+    <h3 v-html="$t('clients.ordersClient')"/>
+    <label for="client-id-orders" v-html="$t('clients.input')"/>
+    <input id="client-id-orders" v-model="clientIdOrders"/>
+    <br />
+    <br />
+    <button @click="getOrdersByClientId" v-html="$t('clients.buttonSearch')"/>
+  </div>
+
+  <table v-for="(items, index) in produce" v-bind:key="index">
+    <tr>
+      <th>
+        Order Id: {{index}}
+      </th>
+    </tr>
+    <tr>
+      <th>
+        Stock Item Id
+      </th>
+      <th>
+        Description
+      </th>
+      <th>
+        Quantity
+      </th>
+    </tr>
+
+    <tr v-for="(item, index) in items.stockOrderDTOS" v-bind:key="index">
+      <td>
+        {{item.stockItemId}}
+      </td>
+      <td>
+        {{item.description}}
+      </td>
+      <td>
+        {{item.quantity}}
+      </td>
+    </tr>
+  </table>
+
+
+
 </template>
 
 <script>
@@ -49,7 +92,9 @@ export default {
     return {
       clientId: '',
       client: '',
-      message: ''
+      message: '',
+      clientIdOrders: '',
+      produce: ''
     }
   },
   methods:{
@@ -66,6 +111,17 @@ export default {
       alert(error+": No client with this Id was found.")
     }
   },
+    async getOrdersByClientId() {
+      try {
+        const response = await axios.get(
+            `http://localhost:8080/orders/client/${this.clientIdOrders}`
+        );
+        this.produce = response.data;
+      } catch (error) {
+        console.error(error);
+        alert(error+": No orders with this client Id was found.");
+      }
+    },
     async updateClient() {
       try {
         axios.put(`http://localhost:8080/clients/${this.clientId}`, {
