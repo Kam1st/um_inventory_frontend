@@ -82,9 +82,13 @@
   </table>
 
     <br>
+      <div>
+        <button @click="producePDF">Produce PDF of Stock Items</button>
+      </div>
     <div>
-      <table>
+      <table id="pdfMaker">
         <thead>
+        <tr><th colspan="8"><h3>Stock Items</h3></th></tr>
         <tr>
           <th>ID</th>
           <th>Description</th>
@@ -117,6 +121,7 @@
 
 <script>
 import axios from "axios";
+import html2pdf from "html2pdf.js";
 
 export default {
   name: "stockItem",
@@ -184,6 +189,12 @@ export default {
         console.error(error)
         alert("an error occurred: "+error)
       }
+    },
+    producePDF(){
+      html2pdf(document.getElementById('pdfMaker'), {
+        filename: 'Stock_Items.pdf',
+        margin: 15
+      })
     },
     redirectNewStockItem(){
       this.$router.push(`/stock/new`);
