@@ -7,8 +7,10 @@
   </div>
   <br/>
   <div>
-  <table v-if="produceByQuant.length > 0">
+  <table id="pdfMaker" v-if="produceByQuant.length > 0">
+
     <thead>
+    <tr><th colspan="3"><h3>Stock Items By Quantity Sold</h3></th></tr>
     <tr>
       <th>ID</th>
       <th>Description</th>
@@ -23,6 +25,9 @@
     </tr>
     </tbody>
   </table>
+    <div>
+      <button @click="producePDF">Produce PDF</button>
+    </div>
   </div>
 
   <br/>
@@ -35,14 +40,18 @@
     <button @click="getByClient" id="getByClient">Get Data</button>
   </div>
   <br/>
-  <div v-if="clientId">
-  <label for="clientIdDisplay" id="clientIdDisplay">Client ID</label>
-  {{ this.clientId }}
-  </div>
 
   <div>
-    <table v-if="produceByClient.length > 0">
+    <table id="pdfMaker2" v-if="produceByClient.length > 0">
+
       <thead>
+      <tr><th colspan="3"><h3>Stock Items By Quantity Sold By Client</h3></th></tr>
+      <tr>
+        <th colspan="3">
+        <label v-if="clientId" for="clientIdDisplay" id="clientIdDisplay">Client ID</label>
+          {{ this.clientId}}
+      </th>
+      </tr>
       <tr>
         <th>ID</th>
         <th>Description</th>
@@ -57,6 +66,9 @@
       </tr>
       </tbody>
     </table>
+    <div>
+      <button @click="producePDF2">Produce PDF</button>
+    </div>
   </div>
 
   <div>
@@ -103,6 +115,7 @@
 
 <script>
 import axios from "axios";
+import html2pdf from "html2pdf.js";
 
 export default {
   name: "stockItemLists",
@@ -157,6 +170,18 @@ export default {
         alert(error + ": No stock items were found")
       }
     }
+    },
+      producePDF(){
+        html2pdf(document.getElementById('pdfMaker'), {
+          filename: 'Stock_Items_Sold_List.pdf',
+          margin: 15
+        })
+    },
+    producePDF2(){
+      html2pdf(document.getElementById('pdfMaker2'), {
+        filename: 'Stock_Item_List_By_Client.pdf',
+        margin: 15
+      })
     },
     async detailsClicked(stockItemId) {
       try {

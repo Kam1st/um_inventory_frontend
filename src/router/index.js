@@ -9,7 +9,6 @@ import clientPage from "@/components/clientPage";
 import employeePage from "@/components/employeePage";
 import employeeForm from "@/components/employeeForm";
 import employeeDetails from "@/components/employeeDetails";
-import ordersAddPage from "@/components/ordersAddPage";
 import stockItemLists from "@/components/stockItemLists";
 
 const routes = [
@@ -43,11 +42,6 @@ const routes = [
         path: "/orders",
         name: "Orders",
         component: ordersPage
-    },
-    {
-        path: "/orders/new",
-        name: "OrdersAdd",
-        component: ordersAddPage
     },
     {
         path: "/clients/new",
