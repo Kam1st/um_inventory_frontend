@@ -1,8 +1,7 @@
 <template>
-  <div class="text-center">
-    <h2 v-html="$t('clients.title')"/>
-  </div>
 
+  <button style="float: right; margin-right: 490px" v-on:click="redirectToClientForm">Create Client</button>
+<br>
   <br>
   <h3 v-html="$t('clients.search')"/>
   <label for="clientId" v-html="$t('clients.input')"/>
@@ -36,8 +35,6 @@
       </fieldset>
 
       <button v-html="$t('clients.update_details_button')" name="update" v-on:click="updateClient"></button>
-
-      <button v-html="$t('clients.back_button')" name="back" v-on:click="backToList"></button>
 
       <button name="back" v-on:click="deleteById">Delete</button>
     </div>
@@ -96,6 +93,10 @@ export default {
       console.error(error);
     }
     },
+
+    redirectToClientForm(){
+      this.$router.push(`/clients/new`);
+    }
 }
 }
 </script>
