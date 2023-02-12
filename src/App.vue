@@ -11,7 +11,7 @@
     <a @click="redirectStockPage">Stock</a>&nbsp;
     <a @click="redirectOrdersPage">Orders</a> &nbsp;
     <a @click="redirectEmployeesPage">Employees</a> &nbsp;
-    <a @click="redirectProfilePage">View Profile</a> &nbsp;
+    <a @click="redirectClientsPage">Clients</a> &nbsp;
   </nav>
 
   <div style="background-color: #97C1FF; color: #051995">
@@ -57,6 +57,9 @@ export default {
     },
     redirectProfilePage(){
       this.$router.push(`/`);
+    },
+    redirectClientsPage(){
+      this.$router.push(`/clients`);
     },
   }
 }
