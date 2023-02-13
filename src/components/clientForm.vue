@@ -19,8 +19,8 @@
         <input type="text" v-model="clientPhone">
       </fieldset>
       <fieldset>
-        <input type="submit" v-on:click="createClient" value="Create New Client">
-        <button name="back" v-on:click="backToLogin">Back to login</button>
+        <input type="submit" v-on:click="createClient" value="Create">
+        <button name="back" v-on:click="back">Back</button>
       </fieldset>
     </div>
   </div>
@@ -48,8 +48,8 @@ export default {
             this.$router.push(`/`);
           })
     },
-    backToLogin() {
-      this.$router.push(`/`);
+    back() {
+      this.$router.push(`/clients`);
     }
   }
 }

@@ -5,7 +5,6 @@
     <div class="center">
       <button name="loginBtn" v-if="!isAuthenticated && !isLoading" @click="login()">Login</button>
       <button name="loginBtn" v-if="isAuthenticated" @click="logout()">Logout</button>
-     <button class="center" v-on:click="redirectToClientForm">Create Client Account</button>
      </div>
 
     <br>
@@ -36,9 +35,6 @@ export default {
     }
     },
   methods: {
-    redirectToClientForm(){
-      this.$router.push(`/clients/new`);
-    }
   }
 }
 </script>
