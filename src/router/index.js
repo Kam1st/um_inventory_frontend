@@ -10,8 +10,8 @@ import orderForm from "@/components/orderForm";
 import employeePage from "@/components/employeePage";
 import employeeForm from "@/components/employeeForm";
 import employeeDetails from "@/components/employeeDetails";
+import { authGuard } from "@auth0/auth0-vue";
 import stockItemLists from "@/components/stockItemLists";
-
 
 const routes = [
     {
@@ -22,17 +22,20 @@ const routes = [
     {
         path: "/stock",
         name: "Stock",
-        component: stockItem
+        component: stockItem,
+        beforeEnter: authGuard,
     },
     {
         path: "/stock/stockItemDetails",
         name: "StockItemDetails",
-        component: stockItemDetails
+        component: stockItemDetails,
+        beforeEnter: authGuard,
     },
     {
         path: "/stock/new",
         name: "NewStockItem",
-        component: stockItemForm
+        component: stockItemForm,
+        beforeEnter: authGuard,
     },
     {
 
@@ -43,7 +46,8 @@ const routes = [
     {
         path: "/orders",
         name: "Orders",
-        component: ordersPage
+        component: ordersPage,
+        beforeEnter: authGuard,
     },
     {
         path: "/orders/new",
@@ -54,32 +58,38 @@ const routes = [
 
         path: "/stock/stockItemDetails",
         name: "StockItemDetails",
-        component: stockItemDetails
+        component: stockItemDetails,
+        beforeEnter: authGuard,
     },
     {
         path: "/clients/new",
         name: "ClientForm",
-        component: clientForm
+        component: clientForm,
+        beforeEnter: authGuard,
     },
     {
         path: "/clients",
         name: "ClientPage",
-        component: clientPage
+        component: clientPage,
+        beforeEnter: authGuard,
     },
     {
         path: "/employees",
         name: "Employees",
-        component: employeePage
+        component: employeePage,
+        beforeEnter: authGuard,
     },
     {
         path: "/employees/new",
         name: "EmployeesForm",
-        component: employeeForm
+        component: employeeForm,
+        beforeEnter: authGuard,
     },
     {
         path: "/employees/employeeDetails",
         name: "EmployeeDetails",
-        component: employeeDetails
+        component: employeeDetails,
+        beforeEnter: authGuard,
     },
 ];
 

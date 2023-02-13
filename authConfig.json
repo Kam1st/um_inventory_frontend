@@ -1,6 +1,7 @@
 {
-  "domain": "dev-lbeeue481zqdew5i.us.auth0.com",
-  "clientId": "H8LpvyDBdLX2LsdoGz9R4T3qY2dBSVe3",
-  "audience": "",
-  "serverUrl": ""
+  "domain": "dev-7b5hpbimp84vnhto.us.auth0.com",
+  "clientId": "CjCBexPCw8cTbWBPHwMssE9bdcIzWR0o",
+  "audience": "http://localhost:8082/",
+  "serverUrl": "http://localhost:8080",
+  "callbackUrl": "/localhost:8081"
 }
