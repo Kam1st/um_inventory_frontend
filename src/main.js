@@ -79,6 +79,10 @@ app.use(router).use(i18n).use(
     createAuth0({
         domain: authConfig.domain,
         client_id: authConfig.clientId,
-        redirect_uri: window.location.origin,
+        //authorizationParams: {
+            //audience: authConfig.audience,
+            redirect_uri: window.location.origin,
+            //redirect_uri: authConfig.callbackUrl,
+       // },
     })
 ).component('LanguageComponent', languageComponent).mount('#app')
