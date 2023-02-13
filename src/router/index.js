@@ -6,10 +6,12 @@ import stockItemDetails from "@/components/stockItemDetails";
 import stockItemForm from "@/components/stockItemForm";
 import clientForm from "@/components/clientForm";
 import clientPage from "@/components/clientPage";
+import orderForm from "@/components/orderForm";
 import employeePage from "@/components/employeePage";
 import employeeForm from "@/components/employeeForm";
 import employeeDetails from "@/components/employeeDetails";
 import stockItemLists from "@/components/stockItemLists";
+
 
 const routes = [
     {
@@ -42,6 +44,17 @@ const routes = [
         path: "/orders",
         name: "Orders",
         component: ordersPage
+    },
+    {
+        path: "/orders/new",
+        name: "OrderForm",
+        component: orderForm
+    },
+    {
+
+        path: "/stock/stockItemDetails",
+        name: "StockItemDetails",
+        component: stockItemDetails
     },
     {
         path: "/clients/new",
