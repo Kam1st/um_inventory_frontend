@@ -1,6 +1,6 @@
 <template>
 
-  <button style="float: right; margin-right: 490px" v-on:click="redirectToClientForm" v-html="$t('clients.new')"/>
+  <button v-on:click="redirectToClientForm" v-html="$t('clients.new')"/>
 <br>
   <br>
   <h3 v-html="$t('clients.search')"/>
@@ -52,7 +52,10 @@
   <table v-for="(items, index) in produce" v-bind:key="index">
     <tr>
       <th>
-        Order Id: {{index}}
+        Order Id: {{items.orderId}}
+      </th>
+      <th>
+        Client Id: {{items.clientId}}
       </th>
     </tr>
     <tr>

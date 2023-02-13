@@ -3,9 +3,16 @@
     <h2 class="text-center">Orders</h2>
 
     <div class="center">
+      <button @click="redirectNewOrder()">New Order</button>
+    </div>
+
+    <br>
+    <br>
+
+    <div class="center">
       <h3>Get Orders By Stock Item Id</h3>
       <label for="stock-id">Stock Item Id:</label>
-      <input id="stock-id" v-model="stockItemId" placeholder="stock item id" />
+      <input id="stock-id" v-model="stockItemId"/>
       <br />
       <br />
       <button @click="getByStockItemId">Get Data</button>
@@ -14,7 +21,10 @@
     <table v-for="(items, index) in produce2" v-bind:key="index">
       <tr>
         <th>
-          Order Id: {{index}}
+          Order Id: {{items.orderId}}
+        </th>
+        <th>
+          Client Id: {{items.clientId}}
         </th>
       </tr>
       <tr>
@@ -42,11 +52,19 @@
       </tr>
     </table>
 
+    <br>
+    <br>
+    <hr>
+
+
     <div class="center">
       <table v-for="(items, index) in produce3" v-bind:key="index">
         <tr>
           <th>
-            Order Id: {{index}}
+            Order Id: {{items.orderId}}
+          </th>
+          <th>
+            Client Id: {{items.clientId}}
           </th>
         </tr>
         <tr>
@@ -117,7 +135,10 @@ export default {
           alert(error + ": No orders with this stock item Id was found.");
         }
       }
-    }
+    },
+    redirectNewOrder(){
+      this.$router.push(`/orders/new`);
+    },
   }
 };
 </script>

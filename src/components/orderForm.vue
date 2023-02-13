@@ -57,8 +57,8 @@
       </tr>
     </table>
     <br>
-    <input type="submit" @click="createStockItem()" value="Add Order">
-    <!--      <button name="back" v-on:click="backToList">Back</button>-->
+    <input type="submit" @click="createOrder()" value="Add Order">
+    <button name="back" v-on:click="backToList">Back</button>
   </div>
 </template>
 
@@ -109,6 +109,19 @@ export default {
     },
     increment () {
       this.value += 1;
+    },
+    createOrder() {
+      axios.post("http://localhost:8080/orders", {
+        clientId: this.clientId,
+        stockOrderDTOS: this.selectedItems,
+      })
+          .then(response => {
+            this.produce=response.data
+            this.$router.push(`/orders`);
+          })
+    },
+    backToList() {
+      this.$router.push(`/orders`);
     }
   },
 };
