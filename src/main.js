@@ -47,12 +47,13 @@ const messages = {
             buttonSearch: 'Search',
             client_id_label: 'Client ID',
             client_name_label: 'Client Name',
-            employee_name_label: 'Employee Name',
-            client_address_label: 'Client Address',
-            client_phone_label: 'Client Phone',
+            employee_name_label: 'Employee In Charge',
+            client_address_label: 'Address',
+            client_phone_label: 'Phone Number',
             update_details_button: 'Update',
-            back_button: 'Back',
             delete_button: 'Delete',
+            create: 'Create',
+            back: 'Back',
         },
 
         app: {
@@ -89,14 +90,14 @@ const messages = {
             orders_stock_id: 'Commandes selon le code de produit ',
             label_orders_stock_id: 'Code Produit ',
 
-            search: 'Chercher',
+            search: 'Rechercher',
 
             order_id: 'Numéro de commande: ',
 
             add_order: 'Ajouter une commande',
-            client_id: 'Numéro Client',
+            client_id: 'Identifiant Client',
             items: 'Choisir Produits',
-            quant: 'Nombre de produits: ',
+            quant: 'Nombre d\'unités: ',
             add_item: 'Ajouter le produit',
             add: 'Ajouter',
             back: 'Retour',
@@ -117,12 +118,13 @@ const messages = {
             buttonSearch: 'Rechercher',
             client_id_label: 'Identifiant Client',
             client_name_label: 'Nom du Client',
-            employee_name_label: 'Nom de l\'Employee',
+            employee_name_label: 'Employé en Charge',
             client_address_label: 'Addresse',
-            client_phone_label: '# de Telephone',
+            client_phone_label: 'Numéro de Telephone',
             update_details_button: 'Mettre a jour',
-            back_button: 'Retour',
             delete_button: 'Supprimer le Client',
+            create: 'Crée',
+            back: 'Retour',
         },
 
         app: {
