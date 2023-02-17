@@ -60,8 +60,24 @@ const messages = {
             orders: 'Orders',
             employees: 'Employees',
             clients: 'Clients',
+        },
+
+        employees: {
+            title: 'Employees',
+            add: 'Add Employee',
+            details: 'Details',
+
+            name: 'Name',
+            position: 'Position',
+            date_hired: 'Date Hired',
+            status: 'Status',
+            add_emp: 'Add',
+            back: 'Back',
         }
     },
+
+
+
     fr: {
         orders: {
             title: 'Commandes',
@@ -114,8 +130,21 @@ const messages = {
             orders: 'Commandes',
             employees: 'Employés',
             clients: 'Clients',
-        }
+        },
+
+        employees: {
+            title: 'Employés',
+            add: 'Ajouter un employé',
+            details: 'Détails',
+
+            name: 'Nom',
+            position: 'Position',
+            date_hired: 'Date d\'embauche',
+            status: 'Statut',
+            add_emp: 'Ajouter',
+            back: 'Retour',
     }
+    },
 }
 const i18n = createI18n({
     locale: 'en',

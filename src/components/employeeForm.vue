@@ -1,26 +1,26 @@
 <template>
-  <h2 class="text-center">Add Employee</h2>
+  <h2 class="text-center" v-html="$t('employees.add')"/>
   <div class="center">
     <div class="form-group">
       <fieldset>
-        <label>Name</label>
+        <label v-html="$t('employees.name')"/>
         <input id="name" type="text" v-model="employeeName">
       </fieldset>
       <fieldset>
-        <label>Position</label>
+        <label v-html="$t('employees.position')"/>
         <input id="position" type="text" v-model="position">
       </fieldset>
       <fieldset>
-        <label>Date Hired</label>
+        <label v-html="$t('employees.date_hired')"/>
         <input id="date" type="text" v-model="dateOfHire">
       </fieldset>
       <fieldset>
-        <label>Status</label>
+        <label v-html="$t('employees.status')"/>
         <input id="status" type="text" v-model="status">
       </fieldset>
       <fieldset>
-        <input id="addEmployee" type="submit" @click="addEmployee()" value="Add Employee">
-        <button name="back" v-on:click="backToList">Back</button>
+        <button id="addEmployee"  @click="addEmployee()" v-html="$t('employees.add_emp')"/>
+        <button name="back" v-on:click="backToList" v-html="$t('employees.back')"/>
       </fieldset>
     </div>
   </div>
