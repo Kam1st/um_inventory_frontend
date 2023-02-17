@@ -3,8 +3,8 @@
 
     <h2 v-html="$t('login.title')"/>
     <div class="center">
-      <button name="loginBtn" v-if="!isAuthenticated && !isLoading" @click="login()">Login</button>
-      <button name="loginBtn" v-if="isAuthenticated" @click="logout()">Logout</button>
+      <button name="loginBtn" v-if="!isAuthenticated && !isLoading" @click="login()" v-html="$t('login.login')"/>
+      <button name="loginBtn" v-if="isAuthenticated" @click="logout()" v-html="$t('login.logout')"/>
      </div>
 
     <br>
