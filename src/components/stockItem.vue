@@ -3,79 +3,7 @@
     <div class="center">
       <button @click="redirectStockLists()" v-html="$t('stock.lists')"/>
       <button @click="redirectNewStockItem()" v-html="$t('stock.add_new')"/>
-
     </div>
-      <div>
-        <h3 v-html="$t('stock.stock_price')"/>
-        <label for="stockPrice" v-html="$t('stock.price')"/>
-        <input id="stockPrice" v-model="sellingPrice"/>
-        <br />
-        <br />
-        <button @click="getByPrice" id="getByPrice" v-html="$t('stock.search')"/>
-      </div>
-
-      <table v-if="sellingPrice">
-        <thead>
-        <tr>
-          <th>ID</th>
-          <th>Description</th>
-          <th>Supplier</th>
-          <th>Quantity Sold</th>
-          <th>Cost</th>
-          <th>Selling Price</th>
-          <th>Quantity in Stock</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="item in prices" v-bind:key="item.stockItemId">
-          <td>{{ item.stockItemId }}</td>
-          <td>{{ item.description }}</td>
-          <td>{{ item.supplierName }}</td>
-          <td>{{ item.quantitySold }}</td>
-          <td>{{ item.costPrice }}</td>
-          <td>{{ item.sellingPrice }}</td>
-          <td>{{ item.quantityInStock }}</td>
-          <td>
-            <button name="stockDetails" @click="detailsClicked(item.stockItemId)" v-html="$t('stock.details')"/>
-          </td>
-        </tr>
-        </tbody>
-      </table>
-  <div>
-    <h3 v-html="$t('stock.stock_supplier')"/>
-    <label for="supplierName" v-html="$t('stock.supplier')"/>
-    <input id="supplierName" v-model="supplierName" @change="getBySupplierName"/>
-    <br />
-    <br />
-  </div>
-
-  <table v-if="produceBySupplier.length > 0">
-    <thead>
-    <tr>
-      <th>ID</th>
-      <th>Description</th>
-      <th>Supplier</th>
-      <th>Quantity Sold</th>
-      <th>Cost</th>
-      <th>Selling Price</th>
-      <th>Quantity in Stock</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr v-for="item in produceBySupplier" v-bind:key="item.stockItemId">
-      <td>{{ item.stockItemId }}</td>
-      <td>{{ item.description }}</td>
-      <td>{{ item.supplierName }}</td>
-      <td>{{ item.quantitySold }}</td>
-      <td>{{ item.costPrice }}</td>
-      <td>{{ item.sellingPrice }}</td>
-      <td>{{ item.quantityInStock }}</td>
-      <td>
-        <button name="stockDetails" @click="detailsClicked(item.stockItemId)" v-html="$t('stock.details')"/>
-      </td>
-    </tr>
-    </tbody>
-  </table>
 
     <br>
       <div>
@@ -84,7 +12,7 @@
     <div>
       <table id="pdfMaker" style="margin-left: 320px">
         <thead>
-        <tr><th colspan="8"><h3 v-html="$t('stock.title')"/></th></tr>
+        <tr><th colspan="8"><h3 v-html="$t('stock.all')"/></th></tr>
         <tr>
           <th>ID</th>
           <th>Description</th>

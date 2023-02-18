@@ -95,6 +95,12 @@ const messages = {
             supplier: 'Supplier ',
             pdf: 'Produce PDF of Stock',
             details: 'Details',
+            all: 'All Products',
+
+            stock_quantity: 'Get Stock Items By Quantity Sold',
+            pdf_quant: 'Produce PDF',
+            quant_client: 'Get Stock Items Sold By Client',
+            client_id: 'Client Id ',
 
         }
     },
@@ -187,6 +193,12 @@ const messages = {
             supplier: 'Fournisseur ',
             pdf: 'PDF liste de produits',
             details: 'Détails',
+            all: 'Tout Les Produits',
+
+            stock_quantity: 'Produits par quantité vendue',
+            pdf_quant: 'Format PDF',
+            quant_client: 'Quantité de produits vendus par client',
+            client_id: 'Identifiant Client ',
 
         }
     },

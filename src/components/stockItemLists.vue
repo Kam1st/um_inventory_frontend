@@ -1,16 +1,16 @@
 <template>
-  <h2 class="text-center">Stock Items - Click To View Items</h2>
+  <h2 class="text-center" v-html="$t('stock.title')"/>
 
   <br/>
   <div>
-  <button @click="getByQuantity">Get Stock Items By Quantity Sold</button>
+  <button @click="getByQuantity" v-html="$t('stock.stock_quantity')"/>
   </div>
   <br/>
   <div>
   <table id="pdfMaker" v-if="produceByQuant.length > 0">
 
     <thead>
-    <tr><th colspan="3"><h3>Stock Items By Quantity Sold</h3></th></tr>
+    <tr><th colspan="3"><h3 v-html="$t('stock.stock_quantity')"/></th></tr>
     <tr>
       <th>ID</th>
       <th>Description</th>
@@ -26,18 +26,18 @@
     </tbody>
   </table>
     <div>
-      <button @click="producePDF">Produce PDF</button>
+      <button @click="producePDF" v-html="$t('stock.pdf_quant')"/>
     </div>
   </div>
 
   <br/>
   <div>
-    <h3>Get Stock Items Sold By Client</h3>
-    <label for="clientId">Client ID:</label>
+    <h3 v-html="$t('stock.quant_client')"/>
+    <label for="clientId" v-html="$t('stock.client_id')"/>
     <input id="clientId" v-model="clientId" @change="getByClient"/>
     <br />
     <br />
-    <button @click="getByClient" id="getByClient">Get Data</button>
+    <button @click="getByClient" id="getByClient" v-html="$t('stock.search')"/>
   </div>
   <br/>
 
@@ -45,7 +45,7 @@
     <table id="pdfMaker2" v-if="produceByClient.length > 0">
 
       <thead>
-      <tr><th colspan="3"><h3>Stock Items By Quantity Sold By Client</h3></th></tr>
+      <tr><th colspan="3"><h3 v-html="$t('stock.quant_client')"/></th></tr>
       <tr>
         <th colspan="3">
         <label v-if="clientId" for="clientIdDisplay" id="clientIdDisplay">Client ID</label>
@@ -67,17 +67,16 @@
       </tbody>
     </table>
     <div>
-      <button @click="producePDF2">Produce PDF</button>
+      <button @click="producePDF2" v-html="$t('stock.pdf_quant')"/>
     </div>
   </div>
 
   <div>
-    <h3>Get Stock Items by Supplier Name</h3>
-    <label for="supplierName">Supplier:</label>
+    <h3 v-html="$t('stock.stock_supplier')"/>
+    <label for="supplierName" v-html="$t('stock.supplier')"/>
     <input id="supplierName" v-model="supplierName" @change="getBySupplierName"/>
     <br />
     <br />
-        <button @click="getBySupplierName" id="getBySupplier">Get Data</button>
   </div>
 
   <table v-if="produceBySupplier.length > 0">
@@ -102,9 +101,7 @@
       <td>{{ item.sellingPrice }}</td>
       <td>{{ item.quantityInStock }}</td>
       <td>
-        <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
-          Details
-        </button>
+        <button name="stockDetails" @click="detailsClicked(item.stockItemId)" v-html="$t('stock.details')"/>
       </td>
     </tr>
     </tbody>
