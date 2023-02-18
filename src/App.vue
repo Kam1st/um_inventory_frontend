@@ -1,14 +1,18 @@
 <template>
 
   <div style="background-color: #054ED6;">
+    <a @click="redirectMainPage">
     <img src="@/assets/logo_um.png" alt="logo" />
-  <LanguageComponent/>
+    </a>
+
   <h1 class="text-center" style="color: white">UNIVERSAL MARKETING CO., LTD</h1>
+
+    <LanguageComponent/>
   <hr>
   </div>
 
   <nav>
-    <a style="margin-left: 120px" @click="redirectStockPage" v-html="$t('app.stock')"/>&nbsp;
+    <a style="margin-left: 160px" @click="redirectStockPage" v-html="$t('app.stock')"/>&nbsp;
     <a @click="redirectOrdersPage" v-html="$t('app.orders')"/> &nbsp;
     <a @click="redirectEmployeesPage" v-html="$t('app.employees')"/> &nbsp;
     <a @click="redirectClientsPage" v-html="$t('app.clients')"/> &nbsp;
@@ -36,6 +40,7 @@
     <br>
 
   </div>
+
 </template>
 
 <script>
@@ -47,6 +52,9 @@ export default {
     languageComponent
   },
   methods: {
+    redirectMainPage(){
+      this.$router.push(`/`);
+    },
     redirectStockPage(){
       this.$router.push(`/stock`);
     },
@@ -93,16 +101,16 @@ nav a {
 
 img {
   float: left;
-  width: 143px;
-  height: 143px;
+  width: 110px;
+  height: 109px;
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 45px;
+  margin-top: 0px;
 }
 
 table, th, td {
-  /*border: 1px solid black;*/
   border-spacing: 10px;
   padding: 6px;
 }

@@ -7,6 +7,7 @@ import { createAuth0 } from "@auth0/auth0-vue";
 import authConfig from "../authConfig.json";
 const app = createApp(App);
 
+
 const messages = {
     en: {
         orders: {
