@@ -12,6 +12,7 @@ import employeeForm from "@/components/employeeForm";
 import employeeDetails from "@/components/employeeDetails";
 import { authGuard } from "@auth0/auth0-vue";
 import stockItemLists from "@/components/stockItemLists";
+import profilePage from "@/components/profilePage";
 
 const routes = [
     {
@@ -89,6 +90,12 @@ const routes = [
         path: "/employees/employeeDetails",
         name: "EmployeeDetails",
         component: employeeDetails,
+        beforeEnter: authGuard,
+    },
+    {
+        path: "/profile",
+        name: "Profile",
+        component: profilePage,
         beforeEnter: authGuard,
     },
 ];

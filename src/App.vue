@@ -12,6 +12,7 @@
     <a @click="redirectOrdersPage" v-html="$t('app.orders')"/> &nbsp;
     <a @click="redirectEmployeesPage" v-html="$t('app.employees')"/> &nbsp;
     <a @click="redirectClientsPage" v-html="$t('app.clients')"/> &nbsp;
+    <a @click="redirectProfilePage">Profile</a> &nbsp;
   </nav>
 
   <div style="background-color: #97C1FF; color: #051995">
@@ -56,7 +57,7 @@ export default {
       this.$router.push(`/employees`);
     },
     redirectProfilePage(){
-      this.$router.push(`/`);
+      this.$router.push(`/profile`);
     },
     redirectClientsPage(){
       this.$router.push(`/clients`);
