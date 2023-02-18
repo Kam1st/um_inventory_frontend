@@ -162,7 +162,7 @@ const messages = {
             client_phone_label: 'Numéro de Telephone',
             update_details_button: 'Mettre a jour',
             delete_button: 'Supprimer le Client',
-            create: 'Crée',
+            create: 'Ajouté',
             back: 'Retour',
         },
 

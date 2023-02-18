@@ -27,7 +27,7 @@
       <input type="text" v-model="quantityInStock">
     </fieldset>
     <fieldset>
-    <input type="submit" @click="createStockItem()" value="Create Stock Item">
+    <button type="submit" @click="createStockItem()" v-html="$t('stock.create')"/>
       <button name="back" v-on:click="backToList" v-html="$t('stock.back')"/>
     </fieldset>
   </div>
