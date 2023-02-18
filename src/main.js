@@ -102,6 +102,17 @@ const messages = {
             quant_client: 'Get Stock Items Sold By Client',
             client_id: 'Client Id ',
 
+            stock_id: 'Stock Item Id',
+            description: 'Description',
+            cost: 'Cost Price',
+            selling: 'Selling Price',
+            quantity: 'Quantity In Stock',
+            sold: 'Quantity Sold',
+            back: 'Back',
+            create: 'Add',
+            update: 'Update',
+            delete: 'Delete'
+
         }
     },
 
@@ -199,6 +210,17 @@ const messages = {
             pdf_quant: 'Format PDF',
             quant_client: 'Quantité de produits vendus par client',
             client_id: 'Identifiant Client ',
+
+            stock_id: 'Code Produit',
+            description: 'Description',
+            cost: 'Prix par unité',
+            selling: 'Prix de vente',
+            quantity: 'Quantité en inventaire',
+            sold: 'Unité Vendus',
+            back: 'Retour',
+            create: 'Ajouter',
+            update: 'Mettre à jour',
+            delete: 'Supprimer'
 
         }
     },
