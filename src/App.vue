@@ -62,9 +62,6 @@ export default {
     redirectEmployeesPage(){
       this.$router.push(`/employees`);
     },
-    redirectProfilePage(){
-      this.$router.push(`/profile`);
-    },
     redirectClientsPage(){
       this.$router.push(`/clients`);
     },
