@@ -1,9 +1,7 @@
 <template>
 
   <div style="background-color: #054ED6;">
-    <a @click="redirectMainPage">
     <img src="@/assets/logo_um.png" alt="logo" />
-    </a>
 
   <h1 class="text-center" style="color: white">UNIVERSAL MARKETING CO., LTD</h1>
 
