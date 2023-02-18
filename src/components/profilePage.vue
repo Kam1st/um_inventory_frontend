@@ -1,10 +1,11 @@
 <template>
   <div>
     <h2>User Profile</h2>
-    <p v-if="isAuthenticated"><b>Nickname:</b> {{ user.nickname }} </p>
-    <p v-if="isAuthenticated"><b>Email:</b> {{ user.email }} </p>
-    <p v-if="isAuthenticated"><b>Is Email Verified:</b> {{ user.email_verified }} </p>
-    <p v-if="isAuthenticated"><b>Last Updated:</b> {{ user.updated_at }} </p>
+    <br>
+    <h4 v-if="isAuthenticated" v-html="$t('profile.nickname')"/> {{ user.nickname }}
+    <h4 v-if="isAuthenticated" v-html="$t('profile.email')"/> {{ user.email }}
+    <h4 v-if="isAuthenticated" v-html="$t('profile.is_verified')"/> {{ user.email_verified }}
+    <h4 v-if="isAuthenticated" v-html="$t('profile.updated')"/> {{ user.updated_at }}
   </div>
 </template>
 <script>

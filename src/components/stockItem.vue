@@ -1,17 +1,17 @@
 <template>
-    <h2 class="text-center">Stock Items - Click To View Items</h2>
+    <h2 class="text-center" v-html="$t('stock.title')"/>
     <div class="center">
-      <button @click="redirectStockLists()">Produce List</button>
-      <button @click="redirectNewStockItem()">Add new stock item</button>
+      <button @click="redirectStockLists()" v-html="$t('stock.lists')"/>
+      <button @click="redirectNewStockItem()" v-html="$t('stock.add_new')"/>
 
     </div>
       <div>
-        <h3>Get Stock Items by Price</h3>
-        <label for="stockPrice">Price:</label>
+        <h3 v-html="$t('stock.stock_price')"/>
+        <label for="stockPrice" v-html="$t('stock.price')"/>
         <input id="stockPrice" v-model="sellingPrice"/>
         <br />
         <br />
-        <button @click="getByPrice" id="getByPrice">Get Data</button>
+        <button @click="getByPrice" id="getByPrice" v-html="$t('stock.search')"/>
       </div>
 
       <table v-if="sellingPrice">
@@ -36,16 +36,14 @@
           <td>{{ item.sellingPrice }}</td>
           <td>{{ item.quantityInStock }}</td>
           <td>
-            <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
-              Details
-            </button>
+            <button name="stockDetails" @click="detailsClicked(item.stockItemId)" v-html="$t('stock.details')"/>
           </td>
         </tr>
         </tbody>
       </table>
   <div>
-    <h3>Get Stock Items by Supplier Name</h3>
-    <label for="supplierName">Supplier:</label>
+    <h3 v-html="$t('stock.stock_supplier')"/>
+    <label for="supplierName" v-html="$t('stock.supplier')"/>
     <input id="supplierName" v-model="supplierName" @change="getBySupplierName"/>
     <br />
     <br />
@@ -73,9 +71,7 @@
       <td>{{ item.sellingPrice }}</td>
       <td>{{ item.quantityInStock }}</td>
       <td>
-        <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
-          Details
-        </button>
+        <button name="stockDetails" @click="detailsClicked(item.stockItemId)" v-html="$t('stock.details')"/>
       </td>
     </tr>
     </tbody>
@@ -83,12 +79,12 @@
 
     <br>
       <div>
-        <button @click="producePDF">Produce PDF of Stock Items</button>
+        <button style="float: right; margin-right: 90px" @click="producePDF" v-html="$t('stock.pdf')"/>
       </div>
     <div>
-      <table id="pdfMaker">
+      <table id="pdfMaker" style="margin-left: 320px">
         <thead>
-        <tr><th colspan="8"><h3>Stock Items</h3></th></tr>
+        <tr><th colspan="8"><h3 v-html="$t('stock.title')"/></th></tr>
         <tr>
           <th>ID</th>
           <th>Description</th>
@@ -109,9 +105,7 @@
           <td>{{ item.sellingPrice }}</td>
           <td>{{ item.quantityInStock }}</td>
           <td>
-            <button name="stockDetails" @click="detailsClicked(item.stockItemId)">
-              Details
-            </button>
+            <button name="stockDetails" @click="detailsClicked(item.stockItemId)" v-html="$t('stock.details')"/>
           </td>
         </tr>
         </tbody>
@@ -156,16 +150,6 @@ export default {
         console.error(error);
       }
     },
-    // async deleteItemById(stockItemId) {
-    //   try {
-    //     const response = await axios.delete(
-    //         `http://localhost:8080/stocks/${stockItemId}`
-    //     );
-    //     this.produce = response.data;
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // },
     async getByPrice() {
       try {
         const response = await axios.get(

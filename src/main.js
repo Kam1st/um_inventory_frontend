@@ -75,6 +75,27 @@ const messages = {
             status: 'Status',
             add_emp: 'Add',
             back: 'Back',
+        },
+
+        profile: {
+            nickname: 'Nickname: ',
+            email: 'Email: ',
+            is_verified: 'Is Email Verified: ',
+            updated: 'Last Updated: '
+        },
+
+        stock: {
+            title: 'Stock Items',
+            lists: 'Produce Specific Lists',
+            add_new: 'Add New Stock Item',
+            stock_price: 'Get Stock Items By Price ',
+            price: 'Price ',
+            search: 'Search',
+            stock_supplier: 'Get Stock Items By Supplier Name',
+            supplier: 'Supplier ',
+            pdf: 'Produce PDF of Stock',
+            details: 'Details',
+
         }
     },
 
@@ -146,7 +167,28 @@ const messages = {
             status: 'Statut',
             add_emp: 'Ajouter',
             back: 'Retour',
-    }
+         },
+
+        profile: {
+            nickname: 'Surnom: ',
+            email: 'Email: ',
+            is_verified: 'Email Verifié: ',
+            updated: 'Date du dernier changement'
+        },
+
+        stock: {
+            title: 'Liste de Produits',
+            lists: 'Listes spécialisées',
+            add_new: 'Ajouter un produit',
+            stock_price: 'Produits selon le prix',
+            price: 'Prix ',
+            search: 'Rechercher',
+            stock_supplier: 'Produits selon fournisseur',
+            supplier: 'Fournisseur ',
+            pdf: 'PDF liste de produits',
+            details: 'Détails',
+
+        }
     },
 }
 const i18n = createI18n({
