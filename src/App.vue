@@ -8,11 +8,11 @@
   </div>
 
   <nav>
-    <a @click="redirectStockPage" v-html="$t('app.stock')"/>&nbsp;
+    <a style="margin-left: 120px" @click="redirectStockPage" v-html="$t('app.stock')"/>&nbsp;
     <a @click="redirectOrdersPage" v-html="$t('app.orders')"/> &nbsp;
     <a @click="redirectEmployeesPage" v-html="$t('app.employees')"/> &nbsp;
     <a @click="redirectClientsPage" v-html="$t('app.clients')"/> &nbsp;
-    <a @click="redirectProfilePage">Profile</a> &nbsp;
+    <a style="float: right; margin-right: 20px" @click="redirectProfilePage">Profile</a> &nbsp;
   </nav>
 
   <div style="background-color: #97C1FF; color: #051995">
@@ -86,7 +86,7 @@ nav {
 }
 
 nav a {
-  padding: 0 20px 0 20px;
+  padding: 0 10px 0 10px;
   font-size: 22px;
   text-align: center;
 }
