@@ -4,6 +4,7 @@
 
     <div class="center">
       <button @click="redirectNewOrder()" v-html="$t('orders.new')"/>
+      <button @click="redirectEditOrder()">Edit Order</button>
     </div>
 
     <br>
@@ -138,6 +139,9 @@ export default {
     },
     redirectNewOrder(){
       this.$router.push(`/orders/new`);
+    },
+    redirectEditOrder(){
+      this.$router.push(`/orders/edit`);
     },
   }
 };

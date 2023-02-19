@@ -111,14 +111,18 @@ export default {
       this.value += 1;
     },
     createOrder() {
-      axios.post("http://localhost:8080/orders", {
-        clientId: this.clientId,
-        stockOrderDTOS: this.selectedItems,
-      })
-          .then(response => {
-            this.produce=response.data
-            this.$router.push(`/orders`);
-          })
+      if(isNaN(this.clientId)){
+        alert('Please enter a number for Client Id.')
+      }else {
+        axios.post("http://localhost:8080/orders", {
+          clientId: this.clientId,
+          stockOrderDTOS: this.selectedItems,
+        })
+            .then(response => {
+              this.produce = response.data
+              this.$router.push(`/orders`);
+            })
+      }
     },
     backToList() {
       this.$router.push(`/orders`);

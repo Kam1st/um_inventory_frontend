@@ -6,6 +6,7 @@ import languageComponent from "@/components/languageComponent";
 import { createAuth0 } from "@auth0/auth0-vue";
 import authConfig from "../authConfig.json";
 const app = createApp(App);
+const Vue3Mq = require('vue3-mq');
 
 
 const messages = {
@@ -243,4 +244,9 @@ app.use(router).use(i18n).use(
             //redirect_uri: authConfig.callbackUrl,
        // },
     })
-).component('LanguageComponent', languageComponent).mount('#app')
+).component('LanguageComponent', languageComponent).
+component('MqResponsive', Vue3Mq.MqResponsive).mount('#app')
+
+Vue3Mq.updateBreakpoints({
+    preset: "bootstrap5"
+})

@@ -21,7 +21,24 @@
   <hr>
   <br>
   <br>
-
+    <MqResponsive target="xs">
+<!--      <div>This is an XS Screen</div>-->
+    </MqResponsive>
+    <MqResponsive target="sm">
+<!--      <div>This is an SM Screen</div>-->
+    </MqResponsive>
+    <MqResponsive target="md">
+<!--      <div>This is an MD Screen</div>-->
+    </MqResponsive>
+    <MqResponsive target="lg">
+<!--      <div>This is an LG Screen</div>-->
+    </MqResponsive>
+    <MqResponsive target="xl">
+<!--      <div>This is an XL Screen</div>-->
+    </MqResponsive>
+    <MqResponsive target="xxl">
+<!--      <div>This is an XXL Screen</div>-->
+    </MqResponsive>
   <router-view/>
     <br>  <br>
     <br>  <br>

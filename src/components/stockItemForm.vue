@@ -46,19 +46,24 @@ export default {
   },
   methods: {
     createStockItem() {
-      axios.post("http://localhost:8080/stocks", {
-        stockItemId: this.stockItemId,
-        description: this.description,
-        supplierName: this.supplierName,
-        quantitySold: 0,
-        costPrice: this.costPrice,
-        sellingPrice: this.sellingPrice,
-        quantityInStock: this.quantityInStock
-      })
-          .then(response => {
-            this.produce=response.data
-            this.$router.push(`/stock`);
-          })
+      if( typeof this.description !== 'string' | typeof this.supplierName !== 'string' | isNaN(this.stockItemId) |
+          isNaN(this.costPrice)| isNaN(this.sellingPrice) | isNaN(this.quantityInStock)) {
+        alert('Please enter the right data type.')
+      } else {
+        axios.post("http://localhost:8080/stocks", {
+          stockItemId: this.stockItemId,
+          description: this.description,
+          supplierName: this.supplierName,
+          quantitySold: 0,
+          costPrice: this.costPrice,
+          sellingPrice: this.sellingPrice,
+          quantityInStock: this.quantityInStock
+        })
+            .then(response => {
+              this.produce = response.data
+              this.$router.push(`/stock`);
+            })
+      }
     },
     backToList() {
       this.$router.push(`/stock`);
