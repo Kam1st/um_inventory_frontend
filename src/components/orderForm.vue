@@ -1,12 +1,12 @@
 <template>
-  <h2 class="text-center">Add Order</h2>
+  <h2 class="text-center" v-html="$t('orders.add_order')"/>
   <div class="center">
-    <h4>Enter Client Id</h4>
+    <h4 v-html="$t('orders.client_id')"/>
     <input id="client-id" type="text" v-model="clientId">
     <br>
     <br>
     <br>
-    <h4>Select Stock Items</h4>
+    <h4 v-html="$t('orders.items')"/>
     <select id="item" v-model="selectedStock">
       <option v-for="item in stockItems" :key="item.stockItemId" :value="item.stockItemId">
         {{ item.stockItemId }}
@@ -15,7 +15,7 @@
     </select>
     <br>
 
-    <h4>Quantity wanted: {{ value }}</h4>
+    <h4 v-html="$t('orders.quant')"/> {{ value }}
     <div class="btn-wrapper">
       <button @click="decrement">-</button>
       <button id="plus" @click="increment">+</button>
@@ -23,7 +23,7 @@
 
 <br>
 
-    <input type="submit" @click="addItem(selectedStock)" value="Add Item To Order">
+    <button @click="addItem(selectedStock)" v-html="$t('orders.add_item')"/>
     <br>
     <br>
     <table>
@@ -57,8 +57,8 @@
       </tr>
     </table>
     <br>
-    <input id="addOrder" type="submit" @click="createOrder()" value="Add Order">
-    <button name="back" v-on:click="backToList">Back</button>
+    <button @click="createOrder()" v-html="$t('orders.add')"/>
+    <button name="back" v-on:click="backToList" v-html="$t('orders.back')"/>
   </div>
 </template>
 

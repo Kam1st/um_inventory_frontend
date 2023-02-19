@@ -5,39 +5,39 @@
   <div v-if="currentStockItem" class="edit-form">
     <div class="form-group">
       <fieldset>
-        <label>ID</label>
+        <label v-html="$t('stock.stock_id')"/>
         <input type="text" v-model="currentStockItem.stockItemId" disabled>
       </fieldset>
       <fieldset>
-        <label>Description</label>
+        <label v-html="$t('stock.description')"/>
         <input type="text" v-model="currentStockItem.description">
       </fieldset>
       <fieldset>
-        <label>Supplier</label>
+        <label v-html="$t('stock.supplier')"/>
         <input type="text" v-model="currentStockItem.supplierName">
       </fieldset>
       <fieldset>
-        <label>Quantity Sold</label>
+        <label v-html="$t('stock.sold')"/>
         <input type="text"  id="quantSold" v-model="currentStockItem.quantitySold">
       </fieldset>
       <fieldset>
-        <label>Cost Price</label>
+        <label v-html="$t('stock.cost')"/>
         <input type="text" v-model="currentStockItem.costPrice">
       </fieldset>
       <fieldset>
-        <label>Selling Price</label>
+        <label v-html="$t('stock.selling')"/>
         <input type="text" v-model="currentStockItem.sellingPrice">
       </fieldset>
       <fieldset>
-        <label>Quantity in Stock</label>
+        <label v-html="$t('stock.quantity')"/>
         <input type="text" v-model="currentStockItem.quantityInStock">
       </fieldset>
 
-      <button name="update" v-on:click="updateItem">Update Item</button>
+      <button name="update" v-on:click="updateItem" v-html="$t('stock.update')"/>
 
-      <button name="back" v-on:click="backToList">Back</button>
+      <button name="back" v-on:click="backToList" v-html="$t('stock.back')"/>
 
-      <button name="back" v-on:click="deleteById">Delete</button>
+      <button name="back" v-on:click="deleteById" v-html="$t('stock.delete')"/>
     </div>
   </div>
 </template>

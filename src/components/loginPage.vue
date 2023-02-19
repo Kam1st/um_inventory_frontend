@@ -1,14 +1,18 @@
 <template>
   <div>
-
-    <h2 v-html="$t('login.title')"/>
-    <div class="center">
-      <button name="loginBtn" v-if="!isAuthenticated && !isLoading" @click="login()">Login</button>
-      <button name="loginBtn" v-if="isAuthenticated" @click="logout()">Logout</button>
-     </div>
-
+    <div>
+      <h2 v-html="$t('app.user_profile')"/>
+      <br>
+      <h4 v-if="isAuthenticated" v-html="$t('profile.nickname')"/> {{ user.nickname }}
+      <h4 v-if="isAuthenticated" v-html="$t('profile.email')"/> {{ user.email }}
+      <h4 v-if="isAuthenticated" v-html="$t('profile.is_verified')"/> {{ user.email_verified }}
+      <h4 v-if="isAuthenticated" v-html="$t('profile.updated')"/> {{ user.updated_at }}
+    </div>
+<br>
     <br>
-    <br>
+    <div>
+      <button name="loginBtn" v-if="isAuthenticated" @click="logout()" v-html="$t('login.logout')"/>
+    </div>
   </div>
 
 </template>
@@ -39,7 +43,6 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h3 {
   margin: 40px 0 0;

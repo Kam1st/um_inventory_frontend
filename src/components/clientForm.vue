@@ -1,26 +1,26 @@
 <template>
-  <h2 class="text-center">Add a New Client</h2>
+  <h2 class="text-center" v-html="$t('clients.new')"/>
   <div class="center">
     <div class="form-group">
       <fieldset>
-        <label>Client</label>
+        <label v-html="$t('clients.client_name_label')"/>
         <input type="text" v-model="clientName">
       </fieldset>
       <fieldset>
-        <label>Employee</label>
+        <label v-html="$t('clients.employee_name_label')"/>
         <input type="text" v-model="clientEmployeeName">
       </fieldset>
       <fieldset>
-        <label>Address</label>
+        <label v-html="$t('clients.client_address_label')"/>
         <input type="text" v-model="clientAddress">
       </fieldset>
       <fieldset>
-        <label>Phone Number</label>
+        <label v-html="$t('clients.client_phone_label')"/>
         <input type="text" v-model="clientPhone">
       </fieldset>
       <fieldset>
-        <input type="submit" v-on:click="createClient" value="Create">
-        <button name="back" v-on:click="back">Back</button>
+        <button type="submit" v-on:click="createClient" v-html="$t('clients.create')"/>
+        <button name="back" v-on:click="back" v-html="$t('clients.back')"/>
       </fieldset>
     </div>
   </div>

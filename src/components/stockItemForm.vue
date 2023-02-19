@@ -1,34 +1,34 @@
 <template>
-  <h2 class="text-center">Stock Items - Click To View Items</h2>
+  <h2 class="text-center" v-html="$t('stock.title')"/>
   <div class="center">
     <div class="form-group">
       <fieldset>
-        <label>id</label>
+        <label v-html="$t('stock.stock_id')"/>
         <input type="text" v-model="stockItemId">
       </fieldset>
     <fieldset>
-      <label>Description</label>
+      <label v-html="$t('stock.description')"/>
       <input type="text" v-model="description">
     </fieldset>
     <fieldset>
-      <label>Supplier</label>
+      <label v-html="$t('stock.supplier')"/>
       <input type="text" v-model="supplierName">
     </fieldset>
     <fieldset>
-      <label>Cost Price</label>
+      <label v-html="$t('stock.cost')"/>
       <input type="text" v-model="costPrice">
     </fieldset>
     <fieldset>
-      <label>Selling Price</label>
+      <label v-html="$t('stock.selling')"/>
       <input type="text" v-model="sellingPrice">
     </fieldset>
     <fieldset>
-      <label>Quantity in Stock</label>
+      <label v-html="$t('stock.quantity')"/>
       <input type="text" v-model="quantityInStock">
     </fieldset>
     <fieldset>
-    <input type="submit" @click="createStockItem()" value="Create Stock Item">
-      <button name="back" v-on:click="backToList">Back</button>
+    <button type="submit" @click="createStockItem()" v-html="$t('stock.create')"/>
+      <button name="back" v-on:click="backToList" v-html="$t('stock.back')"/>
     </fieldset>
   </div>
   </div>

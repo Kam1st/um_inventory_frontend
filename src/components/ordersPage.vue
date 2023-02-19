@@ -1,9 +1,9 @@
 <template>
   <div>
-    <h2 class="text-center">Orders</h2>
+    <h2 class="text-center" v-html="$t('orders.title')"/>
 
     <div class="center">
-      <button @click="redirectNewOrder()">New Order</button>
+      <button @click="redirectNewOrder()" v-html="$t('orders.new')"/>
       <button @click="redirectEditOrder()">Edit Order</button>
     </div>
 
@@ -11,12 +11,12 @@
     <br>
 
     <div class="center">
-      <h3>Get Orders By Stock Item Id</h3>
-      <label for="stock-id">Stock Item Id:</label>
+      <h3 v-html="$t('orders.orders_stock_id')"/>
+      <label for="stock-id" v-html="$t('orders.label_orders_stock_id')"/>
       <input id="stock-id" v-model="stockItemId"/>
       <br />
       <br />
-      <button @click="getByStockItemId">Get Data</button>
+      <button @click="getByStockItemId" v-html="$t('orders.search')"/>
     </div>
 
     <table v-for="(items, index) in produce2" v-bind:key="index">

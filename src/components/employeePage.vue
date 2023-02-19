@@ -1,8 +1,8 @@
 <template>
-  <h2 class="text-center">Employees</h2>
+  <h2 class="text-center" v-html="$t('employees.title')"/>
 
   <div class="center">
-    <button @click="redirectNewEmployee()">Add Employee</button>
+    <button @click="redirectNewEmployee()" v-html="$t('employees.add')"/>
   </div>
 
   <div>
@@ -24,9 +24,7 @@
         <td>{{ item.dateOfHire }}</td>
         <td>{{ item.status }}</td>
         <td>
-          <button name="employeeDetails" @click="detailsClicked(item.employeeId)">
-            Details
-          </button>
+          <button name="employeeDetails" @click="detailsClicked(item.employeeId)" v-html="$t('employees.details')"/>
         </td>
       </tr>
       </tbody>

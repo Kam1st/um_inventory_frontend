@@ -18,7 +18,8 @@ const routes = [
     {
         path: "/",
         name: "Login",
-        component: loginPage
+        component: loginPage,
+        beforeEnter: authGuard,
     },
     {
         path: "/stock",
@@ -42,7 +43,8 @@ const routes = [
 
         path: "/stock/lists",
         name: "StockItemLists",
-        component: stockItemLists
+        component: stockItemLists,
+        beforeEnter: authGuard,
     },
     {
         path: "/orders",
@@ -53,12 +55,14 @@ const routes = [
     {
         path: "/orders/new",
         name: "OrderForm",
-        component: orderForm
+        component: orderForm,
+        beforeEnter: authGuard,
     },
     {
         path: "/orders/edit",
         name: "EditOrder",
-        component: editOrder
+        component: editOrder,
+        beforeEnter: authGuard
     },
     {
 

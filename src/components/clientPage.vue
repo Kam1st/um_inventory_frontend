@@ -1,5 +1,5 @@
 <template>
-
+  <h2 class="text-center" v-html="$t('app.clients')"/>
   <button v-on:click="redirectToClientForm" v-html="$t('clients.new')"/>
 <br>
   <br>
