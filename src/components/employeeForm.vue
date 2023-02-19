@@ -15,11 +15,7 @@
         <input id="date" type="text" v-model="dateOfHire">
       </fieldset>
       <fieldset>
-        <button @click="toggle">Toggle</button>
-          <div v-if="active">
-            Menu
-          </div>
-<!--        <input id="status" type="text" v-model="status">-->
+        <input id="status" type="text" v-model="status">
       </fieldset>
       <fieldset>
         <button id="addEmployee"  @click="addEmployee()" v-html="$t('employees.add_emp')"/>
@@ -39,7 +35,6 @@ export default {
     return {
       postBody: '',
       statusData: ['Active', 'Inactive'],
-      active: false
     }
   },
   methods: {
@@ -59,9 +54,6 @@ export default {
               this.$router.push(`/employees`);
             })
       }
-    },
-    toggle(){
-      this.active = !this.active
     },
     backToList() {
       this.$router.push(`/employees`);
