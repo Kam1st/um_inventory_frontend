@@ -112,7 +112,7 @@ export default {
       } else {
         try {
           const response = await axios.get(
-              `http://localhost:8080/orders/${this.orderId}`
+              `orders/${this.orderId}`
           );
           this.produce = response.data.stockOrderDTOS;
           this.clientId = response.data.clientId;
@@ -125,7 +125,7 @@ export default {
     },
     async getStockItems() {
       try {
-        const response = await axios.get('http://localhost:8080/stocks');
+        const response = await axios.get('stocks');
         this.stockItems = response.data;
       } catch(error) {
         console.error(error);
@@ -157,7 +157,7 @@ export default {
       this.value += 1;
     },
     updateOrder() {
-      axios.put(`http://localhost:8080/orders/${this.orderId}`, {
+      axios.put(`orders/${this.orderId}`, {
         clientId: this.clientId,
         stockOrderDTOS: this.produce,
       })

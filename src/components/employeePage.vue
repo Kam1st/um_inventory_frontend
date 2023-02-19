@@ -49,7 +49,7 @@ export default {
   methods: {
     async getEmployees() {
       try {
-        const response = await axios.get("http://localhost:8080/employees");
+        const response = await axios.get("employees");
         this.produce = response.data;
       } catch (error) {
         console.error(error);

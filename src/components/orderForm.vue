@@ -83,7 +83,7 @@ export default {
   methods: {
     async getStockItems() {
       try {
-        const response = await axios.get('http://localhost:8080/stocks');
+        const response = await axios.get('stocks');
         this.stockItems = response.data;
       } catch(error) {
         console.error(error);
@@ -114,7 +114,7 @@ export default {
       if(isNaN(this.clientId)){
         alert('Please enter a number for Client Id.')
       }else {
-        axios.post("http://localhost:8080/orders", {
+        axios.post("orders", {
           clientId: this.clientId,
           stockOrderDTOS: this.selectedItems,
         })

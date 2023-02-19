@@ -136,7 +136,7 @@ export default {
   methods: {
     async getItems() {
       try {
-        const response = await axios.get("http://localhost:8080/stocks");
+        const response = await axios.get("stocks");
         this.produce = response.data;
       } catch (error) {
         console.error(error);
@@ -145,7 +145,7 @@ export default {
     },
     async getByQuantity() {
         try {
-          const response = await axios.get("http://localhost:8080/orders/quantity");
+          const response = await axios.get("orders/quantity");
           this.produceByQuant = response.data;
         } catch (error) {
           console.error(error);
@@ -157,7 +157,7 @@ export default {
           alert('Please enter an ID.')
       } else {
       try {
-        const response = await axios.get(`http://localhost:8080/orders/${this.clientId}/quantity`);
+        const response = await axios.get(`orders/${this.clientId}/quantity`);
         this.produceByClient = response.data;
         if(this.produceByClient < 1){
           alert('No stock items were found for this client.')
@@ -191,7 +191,7 @@ export default {
     async getByPrice() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/stocks/price/${this.sellingPrice}`
+            `stocks/price/${this.sellingPrice}`
         );
         this.prices = response.data;
       } catch (error) {
@@ -204,7 +204,7 @@ export default {
       }else {
         try {
           const response = await axios.get(
-              `http://localhost:8080/stocks/supplierName/${this.supplierName}`
+              `stocks/supplierName/${this.supplierName}`
           );
           this.produceBySupplier = response.data;
           if (this.produceBySupplier.length == 0 && this.supplierName.length > 0) {
