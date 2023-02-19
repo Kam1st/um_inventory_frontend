@@ -40,7 +40,7 @@ export default {
       if(!this.clientName | !this.clientEmployeeName | !this.clientAddress | !this.clientPhone) {
         alert('Please ensure all fields are filled out.')
       } else {
-        axios.post("http://localhost:8080/clients", {
+        axios.post("clients", {
           clientName: this.clientName,
           clientEmployeeName: this.clientEmployeeName,
           clientAddress: this.clientAddress,

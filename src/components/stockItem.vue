@@ -63,7 +63,7 @@ export default {
   methods: {
     async getItems() {
       try {
-        const response = await axios.get("http://localhost:8080/stocks");
+        const response = await axios.get("stocks");
         this.produce = response.data;
       } catch (error) {
         console.error(error);
@@ -81,7 +81,7 @@ export default {
     async getByPrice() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/stocks/price/${this.sellingPrice}`
+            `stocks/price/${this.sellingPrice}`
         );
         this.prices = response.data;
       } catch (error) {
@@ -91,7 +91,7 @@ export default {
     async getBySupplierName() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/stocks/supplierName/${this.supplierName}`
+            `stocks/supplierName/${this.supplierName}`
         );
         this.produceBySupplier = response.data;
         if (this.produceBySupplier.length == 0 && this.supplierName.length >0){

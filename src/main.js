@@ -7,7 +7,7 @@ import { createAuth0 } from "@auth0/auth0-vue";
 import authConfig from "../authConfig.json";
 const app = createApp(App);
 const Vue3Mq = require('vue3-mq');
-
+import axios from 'axios';
 
 const messages = {
     en: {
@@ -228,6 +228,9 @@ const messages = {
         }
     },
 }
+axios.defaults.baseURL = 'https://um-inventory-6yaupwtesa-uc.a.run.app/';
+                       //'http://localhost:8080/'
+
 const i18n = createI18n({
     locale: 'en',
     fallbackLocale: 'fr',

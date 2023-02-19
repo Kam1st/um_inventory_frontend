@@ -116,7 +116,7 @@ export default {
   methods: {
     async getItems() {
       try {
-        const response = await axios.get("http://localhost:8080/orders");
+        const response = await axios.get("orders");
         this.produce3 = response.data;
       } catch (error) {
         console.error(error);
@@ -128,7 +128,7 @@ export default {
       } else {
         try {
           const response = await axios.get(
-              `http://localhost:8080/orders/stockItem/${this.stockItemId}`
+              `orders/stockItem/${this.stockItemId}`
           );
           this.produce2 = response.data;
         } catch (error) {
