@@ -15,8 +15,11 @@
         <input id="date" type="text" v-model="dateOfHire">
       </fieldset>
       <fieldset>
-        <label v-html="$t('employees.status')"/>
-        <input id="status" type="text" v-model="status">
+        <button @click="toggle">Toggle</button>
+          <div v-if="active">
+            Menu
+          </div>
+<!--        <input id="status" type="text" v-model="status">-->
       </fieldset>
       <fieldset>
         <button id="addEmployee"  @click="addEmployee()" v-html="$t('employees.add_emp')"/>
@@ -30,9 +33,13 @@ import axios from "axios";
 
 export default {
   name: "employeeForm",
+  components: {
+  },
   data() {
     return {
-      postBody: ''
+      postBody: '',
+      statusData: ['Active', 'Inactive'],
+      active: false
     }
   },
   methods: {
@@ -52,6 +59,9 @@ export default {
               this.$router.push(`/employees`);
             })
       }
+    },
+    toggle(){
+      this.active = !this.active
     },
     backToList() {
       this.$router.push(`/employees`);

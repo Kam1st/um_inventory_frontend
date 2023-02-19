@@ -4,7 +4,7 @@
 
     <div class="center">
       <button @click="redirectNewOrder()" v-html="$t('orders.new')"/>
-      <button @click="redirectEditOrder()">Edit Order</button>
+      <button @click="redirectEditOrder()" v-html="$t('orders.edit')"/>
     </div>
 
     <br>

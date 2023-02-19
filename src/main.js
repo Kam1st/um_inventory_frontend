@@ -32,6 +32,10 @@ const messages = {
             add_item: 'Add Item to Order',
             add: 'Add',
             back: 'Back',
+            edit: 'Edit Order',
+            data: 'Get Data',
+            update: 'Update Order'
+
         },
 
         login: {
@@ -113,7 +117,8 @@ const messages = {
             back: 'Back',
             create: 'Add',
             update: 'Update',
-            delete: 'Delete'
+            delete: 'Delete',
+            data: 'Get Data'
 
         }
     },
@@ -142,6 +147,9 @@ const messages = {
             add_item: 'Ajouter le produit',
             add: 'Ajouter',
             back: 'Retour',
+            edit: 'Modifier',
+            data: 'Rechercher',
+            update: 'Mettre à jour'
         },
 
         login: {
