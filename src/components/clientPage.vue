@@ -126,6 +126,9 @@ export default {
       }
     },
     async updateClient() {
+      if (!this.client.clientName | !this.client.clientEmployeeName | !this.client.clientAddress | !this.client.clientPhone) {
+        alert('Please ensure all fields are filled out.')
+      } else {
       try {
         axios.put(`http://localhost:8080/clients/${this.clientId}`, {
           clientName: this.client.clientName,
@@ -140,6 +143,7 @@ export default {
       } catch (error) {
         console.error(error)
       }
+    }
     },
   async deleteById() {
     try {

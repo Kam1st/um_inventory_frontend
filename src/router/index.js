@@ -12,6 +12,7 @@ import employeeForm from "@/components/employeeForm";
 import employeeDetails from "@/components/employeeDetails";
 import { authGuard } from "@auth0/auth0-vue";
 import stockItemLists from "@/components/stockItemLists";
+import editOrder from "@/components/editOrder";
 
 const routes = [
     {
@@ -53,6 +54,11 @@ const routes = [
         path: "/orders/new",
         name: "OrderForm",
         component: orderForm
+    },
+    {
+        path: "/orders/edit",
+        name: "EditOrder",
+        component: editOrder
     },
     {
 
