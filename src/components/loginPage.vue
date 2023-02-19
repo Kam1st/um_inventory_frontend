@@ -2,7 +2,7 @@
   <div>
     <br>
     <div>
-      <h2>User Profile</h2>
+      <h2 v-html="$t('app.user_profile')"/>
       <br>
       <h4 v-if="isAuthenticated" v-html="$t('profile.nickname')"/> {{ user.nickname }}
       <h4 v-if="isAuthenticated" v-html="$t('profile.email')"/> {{ user.email }}

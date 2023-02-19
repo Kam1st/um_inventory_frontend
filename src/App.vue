@@ -14,7 +14,7 @@
     <a @click="redirectOrdersPage" v-html="$t('app.orders')"/> &nbsp;
     <a @click="redirectEmployeesPage" v-html="$t('app.employees')"/> &nbsp;
     <a @click="redirectClientsPage" v-html="$t('app.clients')"/> &nbsp;
-    <a style="float: right; margin-right: 20px" @click="redirectMainPage">Profile</a>
+    <a style="float: right; margin-right: 20px" @click="redirectMainPage" v-html="$t('app.user_profile')"/>
   </nav>
 
   <div style="background-color: #97C1FF; color: #051995">

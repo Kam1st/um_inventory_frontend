@@ -62,6 +62,7 @@ const messages = {
             orders: 'Orders',
             employees: 'Employees',
             clients: 'Clients',
+            user_profile: 'Profile'
         },
 
         employees: {
@@ -171,6 +172,7 @@ const messages = {
             orders: 'Commandes',
             employees: 'Employés',
             clients: 'Clients',
+            user_profile: 'Profil'
         },
 
         employees: {
