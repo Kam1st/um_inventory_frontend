@@ -1,6 +1,6 @@
 <template>
 
-  <div style="background-color: #054ED6;">
+  <div style="background-color: #054ED6; text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;">
     <img src="@/assets/logo_um.png" alt="logo" />
 
   <h1 class="text-center" style="color: white">UNIVERSAL MARKETING CO., LTD</h1>

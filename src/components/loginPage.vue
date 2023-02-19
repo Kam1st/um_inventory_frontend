@@ -1,6 +1,5 @@
 <template>
   <div>
-    <br>
     <div>
       <h2 v-html="$t('app.user_profile')"/>
       <br>
