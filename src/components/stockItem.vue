@@ -6,11 +6,11 @@
     </div>
 
     <br>
-      <div>
-        <button style="float: right; margin-right: 90px" @click="producePDF" v-html="$t('stock.pdf')"/>
+      <div class="center">
+        <button @click="producePDF" v-html="$t('stock.pdf')"/>
       </div>
-    <div>
-      <table id="pdfMaker" style="margin-left: 320px">
+    <div class="center">
+      <table id="pdfMaker" >
         <thead>
         <tr><th colspan="8"><h3 v-html="$t('stock.all')"/></th></tr>
         <tr>
