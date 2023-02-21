@@ -1,0 +1,33 @@
+on: 
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      -main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - uses: actions/setup-node@v2
+      with:
+          node-version: '14'
+    - name: npm install
+      run: |
+        npm install
+
+    - name: npm build
+      run: npm build --if-present
+
+    - name: npm test
+      id: tests
+      run: |
+        npm test --passWithNoTests
+      env:
+        CI: true
