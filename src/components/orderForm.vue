@@ -57,7 +57,7 @@
       </tr>
     </table>
     <br>
-    <button @click="createOrder()" v-html="$t('orders.add')"/>
+    <button id='addButton' @click="createOrder()" v-html="$t('orders.add')"/>
     <button name="back" v-on:click="backToList" v-html="$t('orders.back')"/>
   </div>
 </template>
