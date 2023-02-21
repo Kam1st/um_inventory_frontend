@@ -15,6 +15,7 @@
         <input id="date" type="text" v-model="dateOfHire">
       </fieldset>
       <fieldset>
+        <label v-html="$t('employees.status')"/>
         <input id="status" type="text" v-model="status">
       </fieldset>
       <fieldset>

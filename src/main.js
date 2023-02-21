@@ -34,7 +34,8 @@ const messages = {
             back: 'Back',
             edit: 'Edit Order',
             data: 'Get Data',
-            update: 'Update Order'
+            update: 'Update Order',
+            delete: 'Delete'
 
         },
 
@@ -47,7 +48,7 @@ const messages = {
         clients: {
             title: 'Client Details',
             search: 'Search Client Profile',
-            ordersClient: 'Search Orders Client',
+            ordersClient: 'Search Orders By Client',
             new: 'New Client',
             input: 'Client ID',
             buttonSearch: 'Search',
@@ -149,7 +150,8 @@ const messages = {
             back: 'Retour',
             edit: 'Modifier',
             data: 'Rechercher',
-            update: 'Mettre à jour'
+            update: 'Mettre à jour',
+            delete: 'Supprimer'
         },
 
         login: {

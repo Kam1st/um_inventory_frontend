@@ -111,8 +111,8 @@ export default {
       this.value += 1;
     },
     createOrder() {
-      if(isNaN(this.clientId)){
-        alert('Please enter a number for Client Id.')
+      if(!this.clientId){
+        alert('Please enter a client Id.')
       }else {
         axios.post("orders", {
           clientId: this.clientId,
