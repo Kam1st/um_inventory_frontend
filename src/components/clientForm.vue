@@ -48,7 +48,7 @@ export default {
         })
             .then(response => {
               this.produce = response.data
-              this.$router.push(`/`);
+              this.$router.push(`/clients`);
             })
       }
     },
