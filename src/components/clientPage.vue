@@ -138,7 +138,7 @@ export default {
         })
             .then(response => {
               this.produce = response.data
-              this.$router.push(`/`);
+              this.$router.go();
             })
       } catch (error) {
         console.error(error)
