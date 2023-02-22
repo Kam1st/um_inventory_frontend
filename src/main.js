@@ -7,7 +7,7 @@ import { createAuth0 } from "@auth0/auth0-vue";
 import authConfig from "../authConfig.json";
 const app = createApp(App);
 const Vue3Mq = require('vue3-mq');
-
+import axios from 'axios';
 
 const messages = {
     en: {
@@ -32,6 +32,11 @@ const messages = {
             add_item: 'Add Item to Order',
             add: 'Add',
             back: 'Back',
+            edit: 'Edit Order',
+            data: 'Get Data',
+            update: 'Update Order',
+            delete: 'Delete'
+
         },
 
         login: {
@@ -43,7 +48,7 @@ const messages = {
         clients: {
             title: 'Client Details',
             search: 'Search Client Profile',
-            ordersClient: 'Search Orders Client',
+            ordersClient: 'Search Orders By Client',
             new: 'New Client',
             input: 'Client ID',
             buttonSearch: 'Search',
@@ -113,7 +118,8 @@ const messages = {
             back: 'Back',
             create: 'Add',
             update: 'Update',
-            delete: 'Delete'
+            delete: 'Delete',
+            data: 'Get Data'
 
         }
     },
@@ -142,6 +148,10 @@ const messages = {
             add_item: 'Ajouter le produit',
             add: 'Ajouter',
             back: 'Retour',
+            edit: 'Modifier',
+            data: 'Rechercher',
+            update: 'Mettre à jour',
+            delete: 'Supprimer'
         },
 
         login: {
@@ -228,6 +238,9 @@ const messages = {
         }
     },
 }
+axios.defaults.baseURL = 'https://um-inventory-6yaupwtesa-uc.a.run.app/';
+                       //'http://localhost:8080/'
+
 const i18n = createI18n({
     locale: 'en',
     fallbackLocale: 'fr',

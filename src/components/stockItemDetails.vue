@@ -76,7 +76,7 @@ export default {
     async getItem() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/stocks/${this.stockItemId}`
+            `stocks/${this.stockItemId}`
         );
         console.log(response)
         this.currentStockItem = response.data;
@@ -85,7 +85,7 @@ export default {
       }
     },
     updateItem() {
-      axios.put(`http://localhost:8080/stocks/${this.stockItemId}`, {
+      axios.put(`stocks/${this.stockItemId}`, {
         description: this.currentStockItem.description,
         supplierName: this.currentStockItem.supplierName,
         quantitySold: this.currentStockItem.quantitySold,
@@ -101,7 +101,7 @@ export default {
     async deleteById() {
       try {
         const response = await axios.delete(
-            `http://localhost:8080/stocks/${this.stockItemId}`
+            `stocks/${this.stockItemId}`
         );
         this.produce = response.data;
         this.$router.push(`/stock`);

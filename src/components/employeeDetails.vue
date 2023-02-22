@@ -56,7 +56,7 @@ export default {
     async getItem() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/employees/${this.employeeId}`
+            `employees/${this.employeeId}`
         );
         console.log(response)
         this.currentEmployee = response.data;
@@ -69,7 +69,7 @@ export default {
           | !this.currentEmployee.dateOfHire | !this.currentEmployee.status){
         alert('Please ensure all fields are filled out.')
       } else {
-        axios.put(`http://localhost:8080/employees/${this.employeeId}`, {
+        axios.put(`employees/${this.employeeId}`, {
           employeeName: this.currentEmployee.employeeName,
           position: this.currentEmployee.position,
           dateOfHire: this.currentEmployee.dateOfHire,
@@ -89,7 +89,7 @@ export default {
     async deleteById() {
       try {
         const response = await axios.delete(
-            `http://localhost:8080/employees/${this.employeeId}`
+            `employees/${this.employeeId}`
         );
         this.produce = response.data;
         this.$router.push(`/employees`);

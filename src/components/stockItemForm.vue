@@ -50,7 +50,7 @@ export default {
           isNaN(this.costPrice)| isNaN(this.sellingPrice) | isNaN(this.quantityInStock)) {
         alert('Please enter the right data type.')
       } else {
-        axios.post("http://localhost:8080/stocks", {
+        axios.post("stocks", {
           stockItemId: this.stockItemId,
           description: this.description,
           supplierName: this.supplierName,

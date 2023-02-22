@@ -6,11 +6,11 @@
     </div>
 
     <br>
-      <div>
-        <button style="float: right; margin-right: 90px" @click="producePDF" v-html="$t('stock.pdf')"/>
+      <div class="center">
+        <button @click="producePDF" v-html="$t('stock.pdf')"/>
       </div>
-    <div>
-      <table id="pdfMaker" style="margin-left: 320px">
+    <div class="center">
+      <table id="pdfMaker" >
         <thead>
         <tr><th colspan="8"><h3 v-html="$t('stock.all')"/></th></tr>
         <tr>
@@ -63,7 +63,7 @@ export default {
   methods: {
     async getItems() {
       try {
-        const response = await axios.get("http://localhost:8080/stocks");
+        const response = await axios.get("stocks");
         this.produce = response.data;
       } catch (error) {
         console.error(error);
@@ -81,7 +81,7 @@ export default {
     async getByPrice() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/stocks/price/${this.sellingPrice}`
+            `stocks/price/${this.sellingPrice}`
         );
         this.prices = response.data;
       } catch (error) {
@@ -91,7 +91,7 @@ export default {
     async getBySupplierName() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/stocks/supplierName/${this.supplierName}`
+            `stocks/supplierName/${this.supplierName}`
         );
         this.produceBySupplier = response.data;
         if (this.produceBySupplier.length == 0 && this.supplierName.length >0){

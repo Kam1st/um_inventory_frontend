@@ -57,7 +57,7 @@
       </tr>
     </table>
     <br>
-    <button @click="createOrder()" v-html="$t('orders.add')"/>
+    <button id='addButton' @click="createOrder()" v-html="$t('orders.add')"/>
     <button name="back" v-on:click="backToList" v-html="$t('orders.back')"/>
   </div>
 </template>
@@ -83,7 +83,7 @@ export default {
   methods: {
     async getStockItems() {
       try {
-        const response = await axios.get('http://localhost:8080/stocks');
+        const response = await axios.get('stocks');
         this.stockItems = response.data;
       } catch(error) {
         console.error(error);
@@ -111,10 +111,10 @@ export default {
       this.value += 1;
     },
     createOrder() {
-      if(isNaN(this.clientId)){
-        alert('Please enter a number for Client Id.')
+      if(!this.clientId){
+        alert('Please enter a client Id.')
       }else {
-        axios.post("http://localhost:8080/orders", {
+        axios.post("orders", {
           clientId: this.clientId,
           stockOrderDTOS: this.selectedItems,
         })

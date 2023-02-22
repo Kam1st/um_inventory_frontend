@@ -3,7 +3,7 @@
   <div class="center">
     <h4>Enter Order Id</h4>
     <input id="orderId" type="text" v-model="orderId">
-    <button @click="getByOrderId">Get Data</button>
+    <button @click="getByOrderId" v-html="$t('orders.data')"/>
   </div>
   <br/>
   <div v-if="orderId" class="edit-form">
@@ -50,7 +50,7 @@
           {{item.quantity}}
         </td>
         <td>
-          <button @click="deleteItem(item.stockItemId)">Remove Stock</button>
+          <button @click="deleteItem(item.stockItemId)" v-html="$t('orders.delete')"/>
         </td>
       </tr>
     </table>
@@ -75,12 +75,12 @@
 
   <br>
 
-  <input type="submit" @click="addItem(selectedStock)" value="Add Item To Order">
+  <button type="submit" @click="addItem(selectedStock)" value="Add Item To Order" v-html="$t('orders.add_item')"/>
   <br>
   <br>
   <br>
-  <input id="updateOrder" type="submit" @click="updateOrder()" value="Update Order">
-  <button name="back" v-on:click="backToList">Back</button>
+  <button id="updateOrder" type="submit" @click="updateOrder()" value="Update Order" v-html="$t('orders.update')"/>
+  <button name="back" v-on:click="backToList" v-html="$t('orders.back')"/>
   </div>
 </template>
 
@@ -112,7 +112,7 @@ export default {
       } else {
         try {
           const response = await axios.get(
-              `http://localhost:8080/orders/${this.orderId}`
+              `orders/${this.orderId}`
           );
           this.produce = response.data.stockOrderDTOS;
           this.clientId = response.data.clientId;
@@ -125,7 +125,7 @@ export default {
     },
     async getStockItems() {
       try {
-        const response = await axios.get('http://localhost:8080/stocks');
+        const response = await axios.get('stocks');
         this.stockItems = response.data;
       } catch(error) {
         console.error(error);
@@ -157,7 +157,7 @@ export default {
       this.value += 1;
     },
     updateOrder() {
-      axios.put(`http://localhost:8080/orders/${this.orderId}`, {
+      axios.put(`orders/${this.orderId}`, {
         clientId: this.clientId,
         stockOrderDTOS: this.produce,
       })

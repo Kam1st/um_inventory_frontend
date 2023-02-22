@@ -104,7 +104,7 @@ export default {
   async getByClientId() {
     try {
       const response = await axios.get(
-          `http://localhost:8080/clients/${this.clientId}`
+          `clients/${this.clientId}`
       );
       console.log(response)
       this.client = response.data;
@@ -117,7 +117,7 @@ export default {
     async getOrdersByClientId() {
       try {
         const response = await axios.get(
-            `http://localhost:8080/orders/client/${this.clientIdOrders}`
+            `orders/client/${this.clientIdOrders}`
         );
         this.produce = response.data;
       } catch (error) {
@@ -130,7 +130,7 @@ export default {
         alert('Please ensure all fields are filled out.')
       } else {
       try {
-        axios.put(`http://localhost:8080/clients/${this.clientId}`, {
+        axios.put(`clients/${this.clientId}`, {
           clientName: this.client.clientName,
           clientEmployeeName: this.client.clientEmployeeName,
           clientAddress: this.client.clientAddress,
@@ -138,7 +138,7 @@ export default {
         })
             .then(response => {
               this.produce = response.data
-              this.$router.push(`/`);
+              this.$router.go();
             })
       } catch (error) {
         console.error(error)
@@ -148,7 +148,7 @@ export default {
   async deleteById() {
     try {
       const response = await axios.delete(
-          `http://localhost:8080/clients/${this.clientId}`
+          `clients/${this.clientId}`
       );
       this.produce = response.data;
       this.$router.push(`/`);

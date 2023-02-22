@@ -30,9 +30,12 @@ import axios from "axios";
 
 export default {
   name: "employeeForm",
+  components: {
+  },
   data() {
     return {
-      postBody: ''
+      postBody: '',
+      statusData: ['Active', 'Inactive'],
     }
   },
   methods: {
@@ -41,7 +44,7 @@ export default {
           | !this.dateOfHire | !this.status) {
         alert('Please ensure all fields are filled out.')
       } else {
-        axios.post("http://localhost:8080/employees", {
+        axios.post("employees", {
           employeeName: this.employeeName,
           position: this.position,
           dateOfHire: this.dateOfHire,
